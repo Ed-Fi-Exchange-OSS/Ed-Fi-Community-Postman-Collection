@@ -1,0 +1,4370 @@
+{
+	"info": {
+		"_postman_id": "5cc995c9-0ffc-4715-97fb-317937b8d7c7",
+		"name": "EdFi_5_3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22457052"
+	},
+	"item": [
+		{
+			"name": "V 2.x",
+			"item": [
+				{
+					"name": "Assessments",
+					"item": [
+						{
+							"name": "8) Post Assessment",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"identifier\": \"Dibels-8th\",\n  \"title\": \"Dibels 8th Edition\",  \n  \"revisionDate\": \"2019-10-18\",  \n  \"namespace\": \"http://dibels.uoregon.edu/Assessment/Dibels8th.xml\",\n  \"categoryDescriptor\": \"Reading readiness test\",\n  \"academicSubjects\": [ { \"academicSubjectDescriptor\": \"Reading\" }],\n  \"assessedGradeLevels\": [   \n    { \"gradeLevelDescriptor\": \"Kindergarten\" },\n\t{ \"gradeLevelDescriptor\": \"First grade\" },\n\t{ \"gradeLevelDescriptor\": \"Second grade\" },\n\t{ \"gradeLevelDescriptor\": \"Third grade\" },\n\t{ \"gradeLevelDescriptor\": \"Fourth grade\" },\n\t{ \"gradeLevelDescriptor\": \"Fifth grade\" },\n\t{ \"gradeLevelDescriptor\": \"Sixth grade\" }\n  ],\n  \"scores\": [\n    {\n      \"assessmentReportingMethodType\": \"Scale score\",\n      \"resultDatatypeType\": \"Integer\",\n      \"maximumScore\": \"478\",\n      \"minimumScore\": \"0\"\n    }\n  ],\n  \"performanceLevels\": [\n\t{\n\t  \"assessmentReportingMethodType\": \"Proficiency level\",\n\t  \"performanceLevelDescriptor\": \"http://dibels.uoregon.edu/Descriptor/PerformanceLevelDescriptor.xml/At Benchmark\",\n\t  \"resultDatatypeType\": \"Level\"    \n\t}\t\t\n  ]  \n}"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}/Assessments",
+									"host": [
+										"{{ApiUrl}}"
+									],
+									"path": [
+										"Assessments"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Descriptors",
+					"item": [
+						{
+							"name": "1) Post Performance Level Descriptor",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"codeValue\": \"At Benchmark\",\n  \"description\": \"At Benchmark\",\n  \"namespace\": \"http://dibels.uoregon.edu/Descriptor/PerformanceLevelDescriptor.xml\",\n  \"shortDescription\": \"At Benchmark\" \n}"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}/performanceLevelDescriptors",
+									"host": [
+										"{{ApiUrl}}"
+									],
+									"path": [
+										"performanceLevelDescriptors"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Get Performance Level Descriptors",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}/performanceLevelDescriptors",
+									"host": [
+										"{{ApiUrl}}"
+									],
+									"path": [
+										"performanceLevelDescriptors"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3) Post Staff Classification Descriptors",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"codeValue\": \"DDDMyTestAP\",\r\n    \"description\": \"DDDMy Test Assistant Principal\",\r\n    \"namespace\": \"http://ed-fi.org/Descriptor/StaffClassificationDescriptor.xml\",\r\n    \"shortDescription\": \"DDDMyTestAP\",\r\n    \"staffClassificationType\": \"Assistant Principal\"\r\n}"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}/staffClassificationDescriptors",
+									"host": [
+										"{{ApiUrl}}"
+									],
+									"path": [
+										"staffClassificationDescriptors"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "4) Get Staff Classification Descriptors",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}/staffClassificationDescriptors",
+									"host": [
+										"{{ApiUrl}}"
+									],
+									"path": [
+										"staffClassificationDescriptors"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Local Education Agencies",
+					"item": [
+						{
+							"name": "3) Get Local Education Agencies",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}/localEducationAgencies",
+									"host": [
+										"{{ApiUrl}}"
+									],
+									"path": [
+										"localEducationAgencies"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3) Put local Education Agencies Copy",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"ebf9f38b97e24127b9575e8b2fdb50ad\",\r\n    \"educationServiceCenterReference\": {\r\n      \"educationServiceCenterId\": 255950,\r\n      \"link\": {\r\n        \"rel\": \"EducationServiceCenter\",\r\n        \"href\": \"/educationServiceCenters?educationServiceCenterId=255950\"\r\n      }\r\n    },\r\n    \"localEducationAgencyId\": 255901,\r\n    \"nameOfInstitution\": \"Dougs ISD\",\r\n    \"shortNameOfInstitution\": \"GBISD\",\r\n    \"stateOrganizationId\": \"255901\",\r\n    \"webSite\": \"http://www.GBISD.edu/\",\r\n    \"categoryType\": \"Independent\",\r\n    \"addresses\": [\r\n      {\r\n        \"addressType\": \"Mailing\",\r\n        \"city\": \"Grand Bend\",\r\n        \"nameOfCounty\": \"Williston\",\r\n        \"postalCode\": \"73334-9376\",\r\n        \"stateAbbreviationType\": \"TX\",\r\n        \"streetNumberName\": \"P.O. Box 9376\"\r\n      },\r\n      {\r\n        \"addressType\": \"Physical\",\r\n        \"city\": \"Grand Bend\",\r\n        \"nameOfCounty\": \"Williston\",\r\n        \"postalCode\": \"73334\",\r\n        \"stateAbbreviationType\": \"TX\",\r\n        \"streetNumberName\": \"123 Main Street\"\r\n      }\r\n    ],\r\n    \"educationOrganizationCategories\": [\r\n      {\r\n        \"type\": \"Local Education Agency\"\r\n      }\r\n    ],\r\n    \"identificationCodes\": [\r\n      {\r\n        \"educationOrganizationIdentificationSystemDescriptor\": \"SEA\",\r\n        \"identificationCode\": \"255901\"\r\n      }\r\n    ],\r\n    \"institutionTelephones\": [\r\n      {\r\n        \"institutionTelephoneNumberType\": \"Main\",\r\n        \"telephoneNumber\": \"(950) 367-2013\"\r\n      },\r\n      {\r\n        \"institutionTelephoneNumberType\": \"Fax\",\r\n        \"telephoneNumber\": \"(950) 366-2320\"\r\n      }\r\n    ],\r\n    \"internationalAddresses\": [],\r\n    \"accountabilities\": [],\r\n    \"_etag\": \"636712544963930000\"\r\n  }"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}/localEducationAgencies",
+									"host": [
+										"{{ApiUrl}}"
+									],
+									"path": [
+										"localEducationAgencies"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Locations",
+					"item": [
+						{
+							"name": "5) Post Location",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"schoolReference\": { \"schoolId\": 255901107 },\n    \"classroomIdentificationCode\":\"137-CAF\"\n}"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}/Locations",
+									"host": [
+										"{{ApiUrl}}"
+									],
+									"path": [
+										"Locations"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "School",
+					"item": [
+						{
+							"name": "3) Get Schools",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}/Schools",
+									"host": [
+										"{{ApiUrl}}"
+									],
+									"path": [
+										"Schools"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3) Put Schools",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"71be101738974b55a252833439f5ba95\",\r\n    \"localEducationAgencyReference\": {\r\n      \"localEducationAgencyId\": 255901,\r\n      \"link\": {\r\n        \"rel\": \"LocalEducationAgency\",\r\n        \"href\": \"/localEducationAgencies?localEducationAgencyId=255901\"\r\n      }\r\n    },\r\n    \"schoolId\": 255901001,\r\n    \"nameOfInstitution\": \"Dougs High School\",\r\n    \"operationalStatusType\": \"Active\",\r\n    \"shortNameOfInstitution\": \"GBHS\",\r\n    \"stateOrganizationId\": \"255901001\",\r\n    \"webSite\": \"http://www.GBISD.edu/GBHS/\",\r\n    \"administrativeFundingControlDescriptor\": \"Public School\",\r\n    \"charterStatusType\": \"Not a Charter School\",\r\n    \"type\": \"Regular\",\r\n    \"titleIPartASchoolDesignationType\": \"Not designated as a Title I Part A school\",\r\n    \"addresses\": [\r\n      {\r\n        \"addressType\": \"Mailing\",\r\n        \"city\": \"Grand Bend\",\r\n        \"nameOfCounty\": \"Williston\",\r\n        \"postalCode\": \"73334-2035\",\r\n        \"stateAbbreviationType\": \"TX\",\r\n        \"streetNumberName\": \"P.O. Box 2035\"\r\n      },\r\n      {\r\n        \"addressType\": \"Physical\",\r\n        \"city\": \"Grand Bend\",\r\n        \"nameOfCounty\": \"Williston\",\r\n        \"postalCode\": \"73334\",\r\n        \"stateAbbreviationType\": \"TX\",\r\n        \"streetNumberName\": \"456 Elm Street\"\r\n      }\r\n    ],\r\n    \"educationOrganizationCategories\": [\r\n      {\r\n        \"type\": \"School\"\r\n      }\r\n    ],\r\n    \"identificationCodes\": [\r\n      {\r\n        \"educationOrganizationIdentificationSystemDescriptor\": \"SEA\",\r\n        \"identificationCode\": \"255901001\"\r\n      }\r\n    ],\r\n    \"institutionTelephones\": [\r\n      {\r\n        \"institutionTelephoneNumberType\": \"Main\",\r\n        \"telephoneNumber\": \"(950) 325-9465\"\r\n      },\r\n      {\r\n        \"institutionTelephoneNumberType\": \"Fax\",\r\n        \"telephoneNumber\": \"(950) 393-3156\"\r\n      }\r\n    ],\r\n    \"internationalAddresses\": [],\r\n    \"schoolCategories\": [\r\n      {\r\n        \"type\": \"High School\"\r\n      }\r\n    ],\r\n    \"gradeLevels\": [\r\n      {\r\n        \"gradeLevelDescriptor\": \"Eleventh grade\"\r\n      },\r\n      {\r\n        \"gradeLevelDescriptor\": \"Ninth grade\"\r\n      },\r\n      {\r\n        \"gradeLevelDescriptor\": \"Tenth grade\"\r\n      },\r\n      {\r\n        \"gradeLevelDescriptor\": \"Twelfth grade\"\r\n      }\r\n    ]\r\n  }"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}/Schools",
+									"host": [
+										"{{ApiUrl}}"
+									],
+									"path": [
+										"Schools"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "6) Post School",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"localEducationAgencyReference\": { \"localEducationAgencyId\": 255950 },\r\n\t\"schoolId\": 1234567,\r\n\t\"nameOfInstitution\": \"Dougs High2\",\r\n\t\"operationalStatusType\": \"Active\",\r\n\t\"shortNameOfInstitution\": \"DH\",\r\n\t\"stateOrganizationId\": \"1234567\",\r\n\t\"webSite\": \"http://www.doughs.org\",\r\n\t\"administrativeFundingControlDescriptor\": \"Public School\",\r\n\t\"charterStatusType\": \"Not a Charter School\",\r\n\t\"type\": \"Regular\",\r\n\t\"titleIPartASchoolDesignationType\": \"Not designated as a Title I Part A school\",\r\n\t\"addresses\": [\r\n\t\t{\r\n\t\t\t\"addressType\": \"Mailing\",\r\n\t\t\t\"city\": \"Doug City\",\r\n\t\t\t\"nameOfCounty\": \"Williston\",\r\n\t\t\t\"postalCode\": \"73334-2035\",\r\n\t\t\t\"stateAbbreviationType\": \"TX\",\r\n\t\t\t\"streetNumberName\": \"P.O. Box 123\"\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"addressType\": \"Physical\",\r\n\t\t\t\"city\": \"Grand Bend\",\r\n\t\t\t\"nameOfCounty\": \"Williston\",\r\n\t\t\t\"postalCode\": \"73334\",\r\n\t\t\t\"stateAbbreviationType\": \"TX\",\r\n\t\t\t\"streetNumberName\": \"123 Maple Street\"\r\n\t\t}\r\n\t],\r\n\t\"educationOrganizationCategories\": [ { \"type\": \"School\" } ],\r\n\t\"identificationCodes\": [\r\n\t\t{\r\n\t\t\t\"educationOrganizationIdentificationSystemDescriptor\": \"SEA\",\r\n\t\t\t\"identificationCode\": \"{{schoolId}}\"\r\n\t\t}\r\n\t],\r\n\t\"institutionTelephones\": [\r\n\t\t{\r\n\t\t\t\"institutionTelephoneNumberType\": \"Main\",\r\n\t\t\t\"telephoneNumber\": \"(950) 325-1231\"\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"institutionTelephoneNumberType\": \"Fax\",\r\n\t\t\t\"telephoneNumber\": \"(950) 393-1232\"\r\n\t\t}\r\n\t],\r\n\t\"schoolCategories\": [ { \"type\": \"High School\" } ],\r\n\t\"gradeLevels\": [ { \"gradeLevelDescriptor\": \"Eleventh grade\" } ]\r\n}"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}/Schools",
+									"host": [
+										"{{ApiUrl}}"
+									],
+									"path": [
+										"Schools"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Student",
+					"item": [
+						{
+							"name": "4) Get Students",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}/Students",
+									"host": [
+										"{{ApiUrl}}"
+									],
+									"path": [
+										"Students"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post Student",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"studentUniqueId\": \"jonwick123\",\n    \"birthDate\": \"1980-04-02\",\n    \"firstName\": \"Jon\",\n    \"lastSurname\": \"Wick\",\n    \"sexType\": \"Male\"\n}"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}/Students",
+									"host": [
+										"{{ApiUrl}}"
+									],
+									"path": [
+										"Students"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Student Education Organization",
+					"item": [
+						{
+							"name": "2) Post Student Education Organization Association",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"educationOrganizationReference\": { \"educationOrganizationId\": 11 },\n    \"studentReference\": { \"studentUniqueId\": \"jonwick123\" }\n  }"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}/studentEducationOrganizationAssociations",
+									"host": [
+										"{{ApiUrl}}"
+									],
+									"path": [
+										"studentEducationOrganizationAssociations"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Staff Education Organization Assignment",
+					"item": [
+						{
+							"name": "7) Post staffEducationOrganizationAssignmentAssociations",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \r\n  \"educationOrganizationReference\": {\r\n    \"educationOrganizationId\": \"101717\"\r\n  },\r\n  \"staffReference\": {\r\n    \"staffUniqueId\": \"000829\"\r\n  },\r\n  \"employmentStaffEducationOrganizationEmploymentAssociationReference\": {\r\n    \"educationOrganizationId\": \"350000\",\r\n    \"staffUniqueId\": \"000829\",\r\n    \"hireDate\": \"1963-03-13\",\r\n    \"employmentStatusDescriptor\": \"Substitute/temporary\"\r\n  },\r\n  \"positionTitle\": \"S85008-BPS Bi-Weekly Leave\",\r\n  \"beginDate\": \"2004-10-26\",\r\n  \"endDate\": \"2006-11-16\",\r\n  \"staffClassificationDescriptor\": \"Other\",\r\n  \"orderOfAssignment\": \"1\"\r\n}"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}/staffEducationOrganizationAssignmentAssociations",
+									"host": [
+										"{{ApiUrl}}"
+									],
+									"path": [
+										"staffEducationOrganizationAssignmentAssociations"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "1) GetOAuthCode",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"OAuthCode\", responseData.code);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ApiRoot}}/oauth/authorize?Client_id={{Key}}&Response_type=code",
+							"host": [
+								"{{ApiRoot}}"
+							],
+							"path": [
+								"oauth",
+								"authorize"
+							],
+							"query": [
+								{
+									"key": "Client_id",
+									"value": "{{Key}}"
+								},
+								{
+									"key": "Response_type",
+									"value": "code"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2) GetOAuthToken",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"Token\", responseData.access_token);",
+									"function b(a){return a?(a^Math.random()*16>>a/4).toString(16):([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g,b)};",
+									"postman.setEnvironmentVariable(\"ClientUID\", b());",
+									"postman.setEnvironmentVariable(\"studentUniqueId\", ((Math.random()).toString(16)).slice(-8));",
+									"postman.setEnvironmentVariable(\"schoolId\", \"255901\" + ((Math.random()).toString()).slice(-3));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "Client_id",
+									"value": "{{Key}}",
+									"type": "text"
+								},
+								{
+									"key": "Client_secret",
+									"value": "{{Secret}}",
+									"type": "text"
+								},
+								{
+									"key": "Code",
+									"value": "{{OAuthCode}}",
+									"type": "text"
+								},
+								{
+									"key": "Grant_type",
+									"value": "authorization_code",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{ApiRoot}}/oauth/token",
+							"host": [
+								"{{ApiRoot}}"
+							],
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "V 3.x",
+			"item": [
+				{
+					"name": "Assessments",
+					"item": [
+						{
+							"name": "1) Get Assessments",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Assessments",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Assessments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1) Get Assessments by AssessmentIdentifier",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Assessments?assessmentIdentifier=Testing-Assessment01-Identifier",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Assessments"
+									],
+									"query": [
+										{
+											"key": "assessmentIdentifier",
+											"value": "Testing-Assessment01-Identifier"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post Assessment",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"assessmentIdentifier\": \"Testing-Assessment01-Identifier\",\n  \"assessmentTitle\": \"Testing Assessment 01\",  \n  \"namespace\": \"uri://ed-fi.org/Assessment/Assessment.xml\",\n  \"categoryDescriptor\": \"Reading readiness test\",\n  \"academicSubjects\": [ { \"academicSubjectDescriptor\": \"uri://ed-fi.org/AcademicSubjectDescriptor#Reading\" } ],\n  \"assessedGradeLevels\": [ { \"gradeLevelDescriptor\": \"uri://ed-fi.org/GradeLevelDescriptor#Sixth grade\" } ]\n}\n"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Assessments",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Assessments"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "BellSchedules",
+					"item": [
+						{
+							"name": "1) GET Bell Schedules",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Bellschedules",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Bellschedules"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1) GET Bell Schedules by SchooldId & BellSchedlueName",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Bellschedules?schoolId=255901001&bellScheduleName=Testing-Elementary Bell 20xx-20yy C",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Bellschedules"
+									],
+									"query": [
+										{
+											"key": "schoolId",
+											"value": "255901001"
+										},
+										{
+											"key": "bellScheduleName",
+											"value": "Testing-Elementary Bell 20xx-20yy C"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post Bell Schedules",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"bellScheduleName\": \"Testing-Elementary Bell 20xx-20yy C\",\r\n    \"classPeriods\": [\r\n        {\r\n            \"classPeriodReference\": {\r\n                \"schoolId\": \"255901001\",\r\n                \"classPeriodName\": \"01 - Traditional\"\r\n            }\r\n        },\r\n        {\r\n            \"classPeriodReference\": {\r\n                \"schoolId\": \"255901001\",\r\n                \"classPeriodName\": \"02 - Traditional\"\r\n            }\r\n        }\r\n    ],\r\n    \"schoolReference\": {\r\n        \"schoolId\": 255901001\r\n    },\r\n    \"alternateDayName\": \"Traditional-C\"\r\n}"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Bellschedules",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Bellschedules"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Calendars",
+					"item": [
+						{
+							"name": "1) Get Calendars",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Calendars",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Calendars"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1) Get Calendars by Schoolid",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Calendars?schoolid=255901107",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Calendars"
+									],
+									"query": [
+										{
+											"key": "schoolid",
+											"value": "255901107"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post Calendars",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"calendarCode\": \"2010605675\",\r\n        \"schoolReference\": {\r\n            \"schoolId\": 255901001\r\n        },\r\n        \"schoolYearTypeReference\": {\r\n            \"schoolYear\": 2022\r\n        },\r\n        \"calendarTypeDescriptor\": \"uri://ed-fi.org/CalendarTypeDescriptor#Student Specific\"\r\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Calendars",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Calendars"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Calendar Dates",
+					"item": [
+						{
+							"name": "1) Get Calendar Dates",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/CalendarDates",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"CalendarDates"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1) Get Calendar Dates by SchoolId",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/CalendarDates?SchoolId=255901107",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"CalendarDates"
+									],
+									"query": [
+										{
+											"key": "SchoolId",
+											"value": "255901107"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post Calendar Dates",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "    {\r\n        \"calendarReference\": {\r\n            \"calendarCode\": \"2010605675\",\r\n            \"schoolId\": 255901107,\r\n            \"schoolYear\": 2022\r\n        },\r\n        \"date\": \"2021-08-24\",\r\n        \"calendarEvents\": [\r\n            {\r\n                \"calendarEventDescriptor\": \"uri://ed-fi.org/CalendarEventDescriptor#Instructional day\"\r\n            }\r\n        ]\r\n    }\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/CalendarDates",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"CalendarDates"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "CourseOffering",
+					"item": [
+						{
+							"name": "1) Get CourseOffering",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/CourseOfferings",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"CourseOfferings"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1) Get CourseOffering by ShoolId & CourseCode",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/CourseOfferings?schoolid=255901001&CourseCode=03100500",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"CourseOfferings"
+									],
+									"query": [
+										{
+											"key": "schoolid",
+											"value": "255901001"
+										},
+										{
+											"key": "CourseCode",
+											"value": "03100500"
+										},
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post CourseOffering",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"localCourseCode\": \"03100500\",\r\n    \"courseReference\": { \r\n      \"courseCode\": \"03100500\",\r\n      \"educationOrganizationId\": 255901001\r\n    },\r\n    \"schoolReference\": { \"schoolId\": 255901001 },\r\n    \"sessionReference\": {\r\n      \"schoolId\": 255901001,\r\n      \"schoolYear\": 2022,\r\n      \"sessionName\": \"2021-2022 Fall Semester\"\r\n    }\r\n}"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/CourseOfferings",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"CourseOfferings"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Course Transcripts",
+					"item": [
+						{
+							"name": "1) Get Course Transcripts",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/CourseTranscripts",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"CourseTranscripts"
+									],
+									"query": [
+										{
+											"key": "studentUniqueId",
+											"value": "johnwick123",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post Course Transcripts",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "    {\r\n        \"courseReference\": {\r\n            \"courseCode\": \"ART-01\",\r\n            \"educationOrganizationId\": 255901107\r\n        },\r\n        \"studentAcademicRecordReference\": {\r\n            \"educationOrganizationId\": 255901107,\r\n            \"schoolYear\": 2022,\r\n            \"studentUniqueId\": \"johnwick123\",\r\n            \"termDescriptor\": \"uri://ed-fi.org/TermDescriptor#Fall Semester\"\r\n        },\r\n        \"courseAttemptResultDescriptor\": \"uri://ed-fi.org/CourseAttemptResultDescriptor#Pass\",\r\n        \"attemptedCredits\": 1.000,\r\n        \"earnedCredits\": 1.000,\r\n        \"finalLetterGradeEarned\": \"A\",\r\n        \"finalNumericGradeEarned\": 95.00,\r\n        \"academicSubjects\": [\r\n            {\r\n                \"academicSubjectDescriptor\": \"uri://ed-fi.org/AcademicSubjectDescriptor#Fine and Performing Arts\"\r\n            }\r\n        ]\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/CourseTranscripts",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"CourseTranscripts"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Descriptors",
+					"item": [
+						{
+							"name": "1) Get Staff Classification Descriptors",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/StaffClassificationDescriptors",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"StaffClassificationDescriptors"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post Employment Status Descriptors",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"codeValue\": \"Permanent Academic\",\n  \"description\": \"Permanent Academic\",\n  \"namespace\": \"uri://ed-fi.org/EmploymentStatusDescriptor\",\n  \"shortDescription\": \"Permanent Academic\"\n}"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/EmploymentStatusDescriptors",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"EmploymentStatusDescriptors"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "EducationOrganizationNetworks",
+					"item": [
+						{
+							"name": "1) Get Education Organization Networks",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/educationOrganizationNetworks",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"educationOrganizationNetworks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Get Education Organization Network Associations",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/educationOrganizationNetworkAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"educationOrganizationNetworkAssociations"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Local Education Agencies",
+					"item": [
+						{
+							"name": "2) Get Local Education Agencies",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/localEducationAgencies",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"localEducationAgencies"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post Local Education Agencies",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"localEducationAgencyId\": 35083000,\n  \"categories\": [ \n      { \"educationOrganizationCategoryDescriptor\": \"uri://ed-fi.org/EducationOrganizationCategoryDescriptor#Local Education Agency\" } \n   ],\n  \"nameOfInstitution\": \"RIO RANCHO PUBLIC SCHOOLS District\",\n  \"shortNameOfInstitution\": \"RioRancho\",\n  \"addresses\": [{\n        \"addressTypeDescriptor\": \"uri://ed-fi.org/AddressTypeDescriptor#Physical\",\n        \"stateAbbreviationDescriptor\": \"uri://ed-fi.org/StateAbbreviationDescriptor#NM\",\n        \"city\": \"Rio Rancho\",\n        \"postalCode\": \"87124\",\n        \"streetNumberName\": \"500 Laser Road NE\"\n    }],\n  \"charterStatusDescriptor\": \"uri://ed-fi.org/CharterStatusDescriptor#Not a Charter School\",\n  \"localEducationAgencyCategoryDescriptor\": \"uri://ed-fi.org/LocalEducationAgencyCategoryDescriptor#Independent\",\n  \"operationalStatusDescriptor\": \"uri://ed-fi.org/OperationalStatusDescriptor#Active\"\n}"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/localEducationAgencies",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"localEducationAgencies"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Locations",
+					"item": [
+						{
+							"name": "1) Get Locations with Limit",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"courseOfferingReference\" : {\r\n    \"localCourseCode\" : \"10010200\",\r\n    \"schoolId\" : \"0701024\",\r\n    \"schoolYear\" : 2020,\r\n    \"sessionName\" : \"24-19-20-19251\"\r\n  },\r\n  \"locationReference\" : {\r\n    \"schoolId\" : \"0701024\",\r\n    \"classroomIdentificationCode\" : \"OPEN\"\r\n  },\r\n  \"locationSchoolReference\" : {\r\n    \"schoolId\" : \"0701024\"\r\n  },\r\n  \"sectionIdentifier\" : \"24-10010200-2morri-366749\",\r\n  \"sequenceOfCourse\" : 1,\r\n  \"availableCredits\" : 0,\r\n  \"educationalEnvironmentDescriptor\" : \"uri://ed-fi.org/EducationalEnvironmentDescriptor#Classroom\",\r\n  \"classPeriods\" : [ {\r\n    \"classPeriodReference\" : {\r\n      \"schoolId\" : \"0701024\",\r\n      \"classPeriodName\" : \"24-2EL-A\"\r\n    }\r\n  }, {\r\n    \"classPeriodReference\" : {\r\n      \"schoolId\" : \"0701024\",\r\n      \"classPeriodName\" : \"24-2EL-B\"\r\n    }\r\n  }, {\r\n    \"classPeriodReference\" : {\r\n      \"schoolId\" : \"0701024\",\r\n      \"classPeriodName\" : \"24-2EL-C\"\r\n    }\r\n  }, {\r\n    \"classPeriodReference\" : {\r\n      \"schoolId\" : \"0701024\",\r\n      \"classPeriodName\" : \"24-2EL-D\"\r\n    }\r\n  }, {\r\n    \"classPeriodReference\" : {\r\n      \"schoolId\" : \"0701024\",\r\n      \"classPeriodName\" : \"24-2EL-E\"\r\n    }\r\n  }, {\r\n    \"classPeriodReference\" : {\r\n      \"schoolId\" : \"0701024\",\r\n      \"classPeriodName\" : \"24-2el-A\"\r\n    }\r\n  }, {\r\n    \"classPeriodReference\" : {\r\n      \"schoolId\" : \"0701024\",\r\n      \"classPeriodName\" : \"24-2el-B\"\r\n    }\r\n  }, {\r\n    \"classPeriodReference\" : {\r\n      \"schoolId\" : \"0701024\",\r\n      \"classPeriodName\" : \"24-2el-C\"\r\n    }\r\n  }, {\r\n    \"classPeriodReference\" : {\r\n      \"schoolId\" : \"0701024\",\r\n      \"classPeriodName\" : \"24-2el-D\"\r\n    }\r\n  }, {\r\n    \"classPeriodReference\" : {\r\n      \"schoolId\" : \"0701024\",\r\n      \"classPeriodName\" : \"24-2el-E\"\r\n    }\r\n  } ]\r\n}"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Locations?limit=10",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Locations"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post Locations",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "   {\r\n        \"classroomIdentificationCode\": \"GYM 101\",\r\n        \"schoolReference\": {\r\n            \"schoolId\": 255901107\r\n        },\r\n        \"maximumNumberOfSeats\": 200,\r\n        \"optimalNumberOfSeats\": 150,\r\n\r\n    },"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Locations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Locations"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Parent",
+					"item": [
+						{
+							"name": "1) Get Parents",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Parents",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Parents"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) POST Parents Minimum Fields",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "   {\r\n        \"parentUniqueId\": \"12345678\",\r\n        \"firstName\": \"Kathy\",\r\n        \"lastSurname\": \"Brown\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Parents",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Parents"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) POST Parents",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "   {\r\n        \"parentUniqueId\": \"1234567\",\r\n        \"firstName\": \"Kathy\",\r\n        \"lastSurname\": \"Brown\",\r\n        \"personalTitlePrefix\": \"Mrs\",\r\n        \"sexDescriptor\": \"uri://ed-fi.org/SexDescriptor#Female\",\r\n        \"addresses\": [\r\n            {\r\n                \"addressTypeDescriptor\": \"uri://ed-fi.org/AddressTypeDescriptor#Home\",\r\n                \"city\": \"Grand Bend\",\r\n                \"postalCode\": \"78834\",\r\n                \"stateAbbreviationDescriptor\": \"uri://ed-fi.org/StateAbbreviationDescriptor#TX\",\r\n                \"streetNumberName\": \"12345 Rocky Road Avenue\",\r\n                \"nameOfCounty\": \"Travis\"\r\n            }\r\n        ],\r\n        \"personalIdentificationDocuments\": [\r\n            {\r\n                \"identificationDocumentUseDescriptor\": \"uri://ed-fi.org/IdentificationDocumentUseDescriptor#Personal Information Verification\",\r\n                \"personalInformationVerificationDescriptor\": \"uri://ed-fi.org/PersonalInformationVerificationDescriptor#Life insurance policy\"\r\n            }\r\n        ],\r\n        \"telephones\": [\r\n            {\r\n                \"telephoneNumber\": \"(123) 456 7890\",\r\n                \"telephoneNumberTypeDescriptor\": \"uri://ed-fi.org/TelephoneNumberTypeDescriptor#Other\",\r\n                \"orderOfPriority\": 1\r\n            }\r\n        ]\r\n   }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Parents",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Parents"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Programs",
+					"item": [
+						{
+							"name": "1) Get Programs",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/programs",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"programs"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post Program",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"programName\":\"Special Ed Dance Party\",\n    \"programTypeDescriptor\":\"uri://ed-fi.org/ProgramTypeDescriptor#Special Education\",\n    \"educationOrganizationReference\":\n                {\"educationOrganizationId\":255901001}\n}"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/programs",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"programs"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Schools",
+					"item": [
+						{
+							"name": "1) Get Schools",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/schools",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"schools"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post Schools",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"localEducationAgencyReference\": { \"localEducationAgencyId\": 255901 },\n    \"schoolId\": 1,\n    \"nameOfInstitution\": \"Doug Test Updated\",\n\n    \"educationOrganizationCategories\": [ { \"educationOrganizationCategoryDescriptor\": \"uri://ed-fi.org/EducationOrganizationCategoryDescriptor#School\" } ],\n    \"gradeLevels\": [\n        { \"gradeLevelDescriptor\": \"uri://ed-fi.org/GradeLevelDescriptor#Eighth grade\" },\n        { \"gradeLevelDescriptor\": \"uri://ed-fi.org/GradeLevelDescriptor#Eleventh grade\" },\n        { \"gradeLevelDescriptor\": \"uri://ed-fi.org/GradeLevelDescriptor#Ninth grade\" },\n        { \"gradeLevelDescriptor\": \"uri://ed-fi.org/GradeLevelDescriptor#Seventh grade\" },\n        { \"gradeLevelDescriptor\": \"uri://ed-fi.org/GradeLevelDescriptor#Sixth grade\" },\n        { \"gradeLevelDescriptor\": \"uri://ed-fi.org/GradeLevelDescriptor#Fifth grade\" },\n        { \"gradeLevelDescriptor\": \"uri://ed-fi.org/GradeLevelDescriptor#Tenth grade\" },\n        { \"gradeLevelDescriptor\": \"uri://ed-fi.org/GradeLevelDescriptor#Twelfth grade\" }\n    ]\n}"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Schools",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Schools"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Sections",
+					"item": [
+						{
+							"name": "1) GET Section",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"courseOfferingReference\" : {\r\n    \"localCourseCode\" : \"10010200\",\r\n    \"schoolId\" : \"0701024\",\r\n    \"schoolYear\" : 2020,\r\n    \"sessionName\" : \"24-19-20-19251\"\r\n  },\r\n  \"locationReference\" : {\r\n    \"schoolId\" : \"0701024\",\r\n    \"classroomIdentificationCode\" : \"OPEN\"\r\n  },\r\n  \"locationSchoolReference\" : {\r\n    \"schoolId\" : \"0701024\"\r\n  },\r\n  \"sectionIdentifier\" : \"24-10010200-2morri-366749\",\r\n  \"sequenceOfCourse\" : 1,\r\n  \"availableCredits\" : 0,\r\n  \"educationalEnvironmentDescriptor\" : \"uri://ed-fi.org/EducationalEnvironmentDescriptor#Classroom\",\r\n  \"classPeriods\" : [ {\r\n    \"classPeriodReference\" : {\r\n      \"schoolId\" : \"0701024\",\r\n      \"classPeriodName\" : \"24-2EL-A\"\r\n    }\r\n  }, {\r\n    \"classPeriodReference\" : {\r\n      \"schoolId\" : \"0701024\",\r\n      \"classPeriodName\" : \"24-2EL-B\"\r\n    }\r\n  }, {\r\n    \"classPeriodReference\" : {\r\n      \"schoolId\" : \"0701024\",\r\n      \"classPeriodName\" : \"24-2EL-C\"\r\n    }\r\n  }, {\r\n    \"classPeriodReference\" : {\r\n      \"schoolId\" : \"0701024\",\r\n      \"classPeriodName\" : \"24-2EL-D\"\r\n    }\r\n  }, {\r\n    \"classPeriodReference\" : {\r\n      \"schoolId\" : \"0701024\",\r\n      \"classPeriodName\" : \"24-2EL-E\"\r\n    }\r\n  }, {\r\n    \"classPeriodReference\" : {\r\n      \"schoolId\" : \"0701024\",\r\n      \"classPeriodName\" : \"24-2el-A\"\r\n    }\r\n  }, {\r\n    \"classPeriodReference\" : {\r\n      \"schoolId\" : \"0701024\",\r\n      \"classPeriodName\" : \"24-2el-B\"\r\n    }\r\n  }, {\r\n    \"classPeriodReference\" : {\r\n      \"schoolId\" : \"0701024\",\r\n      \"classPeriodName\" : \"24-2el-C\"\r\n    }\r\n  }, {\r\n    \"classPeriodReference\" : {\r\n      \"schoolId\" : \"0701024\",\r\n      \"classPeriodName\" : \"24-2el-D\"\r\n    }\r\n  }, {\r\n    \"classPeriodReference\" : {\r\n      \"schoolId\" : \"0701024\",\r\n      \"classPeriodName\" : \"24-2el-E\"\r\n    }\r\n  } ]\r\n}"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Sections",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Sections"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post Section",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"sectionIdentifier\" : \"Fall-03100500\",\r\n  \"courseOfferingReference\" : {\r\n    \"localCourseCode\" : \"03100500\",\r\n    \"schoolId\" : \"255901001\",\r\n    \"schoolYear\" : 2022,\r\n    \"sessionName\" : \"2021-2022 Fall Semester\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Sections",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Sections"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Session",
+					"item": [
+						{
+							"name": "1) Get Session",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Sessions",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Sessions"
+									],
+									"query": [
+										{
+											"key": "SessionName",
+											"value": "2021-2022 Fall Semester",
+											"disabled": true
+										},
+										{
+											"key": "schoolid",
+											"value": "255901001",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post Session",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"sessionName\": \"2021-2022 Fall Semester\",\r\n    \"schoolReference\": { \"schoolId\": 255901001 },\r\n    \"schoolYearTypeReference\": { \"schoolYear\": 2022 },\r\n    \"beginDate\": \"2021-08-23\",\r\n    \"endDate\": \"2022-12-17\",\r\n    \"termDescriptor\": \"uri://ed-fi.org/TermDescriptor#Fall Semester\",\r\n    \"totalInstructionalDays\": 81,\r\n    \"academicWeeks\": []\r\n  }"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Sessions",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Sessions"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Staffs",
+					"item": [
+						{
+							"name": "1) Get Staff",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Staffs",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Staffs"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "100",
+											"disabled": true
+										},
+										{
+											"key": "staffuniqueid",
+											"value": "6013",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post Staff",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"staffUniqueId\": \"6013\",\n    \"firstName\": \"Douglas\",\n    \"lastSurname\": \"Loyo\"\n}"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Staffs",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Staffs"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Staff Education Organization Assignment",
+					"item": [
+						{
+							"name": "1) Get StaffEducationOrganizationAssignmentAssociation",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/staffEducationOrganizationAssignmentAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"staffEducationOrganizationAssignmentAssociations"
+									],
+									"query": [
+										{
+											"key": "staffuniqueid",
+											"value": "6013",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post StaffEducationOrganizationAssignment",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"educationOrganizationReference\": {\r\n            \"educationOrganizationId\": 255901107\r\n        },\r\n        \"staffReference\": {\r\n            \"staffUniqueId\": \"6013\"\r\n        },\r\n        \"beginDate\": \"2010-12-30\",\r\n        \"staffClassificationDescriptor\": \"uri://ed-fi.org/StaffClassificationDescriptor#Teacher\",\r\n        \"positionTitle\": \"3rd Grade teacher\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/staffEducationOrganizationAssignmentAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"staffEducationOrganizationAssignmentAssociations"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Staff Education OrganizationEmployment",
+					"item": [
+						{
+							"name": "1) Get StaffEducationOrganizationEmploymentAssociations",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/staffEducationOrganizationEmploymentAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"staffEducationOrganizationEmploymentAssociations"
+									],
+									"query": [
+										{
+											"key": "staffUniqueId",
+											"value": "6013",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post staffEducationOrganizationEmploymentAssociations",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"employmentStatusDescriptor\": \"uri://ed-fi.org/EmploymentStatusDescriptor#Permanent Academic\",\r\n    \"hireDate\": \"2004-02-10\",\r\n    \"educationOrganizationReference\": { \"educationOrganizationId\": 255901 },\r\n    \"staffReference\": { \"staffUniqueId\": \"6013\" }\r\n }"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/staffEducationOrganizationEmploymentAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"staffEducationOrganizationEmploymentAssociations"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Staff School Association",
+					"item": [
+						{
+							"name": "1) Get Staff School Association",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/staffSchoolAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"staffSchoolAssociations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post Staff School Association",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"schoolReference\": { \"schoolId\": 255901107 },\n\t\"staffReference\": { \"staffUniqueId\": \"6013\" },\n\t\"programAssignmentDescriptor\": \"uri://ed-fi.org/ProgramAssignmentDescriptor#Other\"\n}\n\n\n "
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/staffSchoolAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"staffSchoolAssociations"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Students",
+					"item": [
+						{
+							"name": "1) Get Student",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Students",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Students"
+									],
+									"query": [
+										{
+											"key": "Firstname",
+											"value": "john",
+											"disabled": true
+										},
+										{
+											"key": "LastSurname",
+											"value": "wick",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post Student",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"studentUniqueId\": \"johnwick123\",\n    \"birthDate\": \"1980-04-02\",\n    \"firstName\": \"John\",\n    \"lastSurname\": \"Wick\"\n}"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Students",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Students"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Delete Student",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}/Students?id=b08816bf807a43dd98223ff889dd3f6f",
+									"host": [
+										"{{ApiUrl}}"
+									],
+									"path": [
+										"Students"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "b08816bf807a43dd98223ff889dd3f6f"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Student Academic Records",
+					"item": [
+						{
+							"name": "1) Get Student Academic Records",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/StudentAcademicRecords",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"StudentAcademicRecords"
+									],
+									"query": [
+										{
+											"key": "studentUniqueId",
+											"value": "johnwick123",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post Student Academic Records",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "\n  {\n        \"educationOrganizationReference\": {\n            \"educationOrganizationId\": 255901107\n        },\n        \"schoolYearTypeReference\": {\n            \"schoolYear\": 2022\n        },\n        \"studentReference\": {\n            \"studentUniqueId\": \"johnwick123\"\n        },\n        \"termDescriptor\": \"uri://ed-fi.org/TermDescriptor#Fall Semester\",\n        \"cumulativeEarnedCredits\": 1.50\n    }"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/StudentAcademicRecords",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"StudentAcademicRecords"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Fails Student Education Organization",
+					"item": [
+						{
+							"name": "1) Get Student Education Organization Association",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/studentEducationOrganizationAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"studentEducationOrganizationAssociations"
+									],
+									"query": [
+										{
+											"key": "studentUniqueId",
+											"value": "johnwick123",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post Student Education Organization Association",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"educationOrganizationReference\": { \"educationOrganizationId\": 255901107 },\n    \"studentReference\": { \"studentUniqueId\": \"johnwick123\" },\n    \"sexDescriptor\": \"uri://ed-fi.org/SexDescriptor#Male\",\n    \"electronicMails\": [\n      {\n        \"electronicMailAddress\": \"*john@wick.com\",\n        \"electronicMailTypeDescriptor\": \"uri://ed-fi.org/ElectronicMailTypeDescriptor#Organization\"\n      }\n    ]\n  }"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/studentEducationOrganizationAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"studentEducationOrganizationAssociations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fails 405 - 6) PUT student Education Organization Association",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"educationOrganizationReference\": { \"educationOrganizationId\": 255901 },\n        \"studentReference\": { \"studentUniqueId\": \"604821\" },\n        \"hispanicLatinoEthnicity\": false,\n        \"oldEthnicityDescriptor\": \"uri://ed-fi.org/OldEthnicityDescriptor#Black, Not Of Hispanic Origin\",\n        \"sexDescriptor\": \"uri://ed-fi.org/SexDescriptor#Male\",\n        \"addresses\": [\n            {\n                \"addressTypeDescriptor\": \"uri://ed-fi.org/AddressTypeDescriptor#Home\",\n                \"city\": \"Grand Bend\",\n                \"postalCode\": \"78834\",\n                \"stateAbbreviationDescriptor\": \"uri://ed-fi.org/StateAbbreviationDescriptor#TX\",\n                \"streetNumberName\": \"263 New Street\",\n                \"nameOfCounty\": \"WILLISTON\",\n                \"periods\": []\n            }\n        ],\n        \"cohortYears\": [],\n        \"disabilities\": [],\n        \"electronicMails\": [ { \"electronicMailAddress\": \"tosc.dzre@example.com\", \"electronicMailTypeDescriptor\": \"uri://ed-fi.org/ElectronicMailTypeDescriptor#Organization\" } ],\n        \"internationalAddresses\": [],\n        \"languages\": [],\n        \"programParticipations\": [],\n        \"races\": [ { \"raceDescriptor\": \"uri://ed-fi.org/RaceDescriptor#White\" }],\n        \"studentCharacteristics\": [],\n        \"studentIdentificationCodes\": [\n            {\n                \"assigningOrganizationIdentificationCode\": \"Local\",\n                \"studentIdentificationSystemDescriptor\": \"uri://ed-fi.org/StudentIdentificationSystemDescriptor#Local\",\n                \"identificationCode\": \"821\"\n            },\n            {\n                \"assigningOrganizationIdentificationCode\": \"SSN\",\n                \"studentIdentificationSystemDescriptor\": \"uri://ed-fi.org/StudentIdentificationSystemDescriptor#SSN\",\n                \"identificationCode\": \"1304682336\"\n            }\n        ],\n        \"studentIndicators\": [],\n        \"telephones\": [],\n        \"_ext\": { \"MyBPS\": { \"aggregatedRaceDescriptor\": \"uri://mybps.org/AggregatedRaceDescriptor#Hispanic\" } }\n    }"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}/studentEducationOrganizationAssociations/bd79ae826d9548898b56112542563524",
+									"host": [
+										"{{ApiUrl}}"
+									],
+									"path": [
+										"studentEducationOrganizationAssociations",
+										"bd79ae826d9548898b56112542563524"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Student Parent Association",
+					"item": [
+						{
+							"name": "5) Get Student Parent Associations",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/StudentParentAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"StudentParentAssociations"
+									],
+									"query": [
+										{
+											"key": "parentUniqueId",
+											"value": "778791",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post Student Parent Associations",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n        \"parentReference\": {\r\n            \"parentUniqueId\": \"778791\"\r\n        },\r\n        \"studentReference\": {\r\n            \"studentUniqueId\": \"johnwick123\"\r\n        },\r\n        \"emergencyContactStatus\": true,\r\n        \"livesWith\": true,\r\n        \"primaryContactStatus\": true,\r\n        \"relationDescriptor\": \"uri://ed-fi.org/RelationDescriptor#Father\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/StudentParentAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"StudentParentAssociations"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Student School Association",
+					"item": [
+						{
+							"name": "3) Get StudentSchoolAssociations",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/studentSchoolAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"studentSchoolAssociations"
+									],
+									"query": [
+										{
+											"key": "studentUniqueId",
+											"value": "johnwick123",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "4) Post StudentSchoolAssociation",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"schoolReference\": { \"schoolId\": 255901107 },\n    \"studentReference\": {\"studentUniqueId\": \"johnwick123\" },\n    \"entryDate\": \"2021-08-23\",\n    \"entryGradeLevelDescriptor\": \"uri://ed-fi.org/GradeLevelDescriptor#First grade\"\n}"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/studentSchoolAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"studentSchoolAssociations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "4) Delete StudentSchoolAssociation",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/studentSchoolAssociations/?id=6452ef203d0143b58d2263fed111b2b8",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"studentSchoolAssociations",
+										""
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "6452ef203d0143b58d2263fed111b2b8"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Student School Attendance Events",
+					"item": [
+						{
+							"name": "1) Get StudentSchoolAttendanceEvents",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/studentSchoolAttendanceEvents",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"studentSchoolAttendanceEvents"
+									],
+									"query": [
+										{
+											"key": "studentUniqueId",
+											"value": "johnwick123",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post StudentSchoolAttendanceEvents",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"schoolReference\": { \"schoolId\": 255901107},\n    \"sessionReference\": { \"schoolId\": 255901107, \"schoolYear\": 2022, \"sessionName\": \"2021-2022 Fall Semester\" },\n    \"studentReference\": { \"studentUniqueId\": \"johnwick123\" },\n    \"attendanceEventCategoryDescriptor\": \"uri://ed-fi.org/AttendanceEventCategoryDescriptor#Unexcused Absence\",\n    \"eventDate\": \"2021-08-25\",\n    \"attendanceEventReason\": \"Absent excused\",\n    \"eventDuration\": 1.00\n}"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/studentSchoolAttendanceEvents",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"studentSchoolAttendanceEvents"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Student Section Associations",
+					"item": [
+						{
+							"name": "1) Get Student Section Association",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/studentSectionAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"studentSectionAssociations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post Student Section Association",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"sectionReference\": {\r\n            \"localCourseCode\": \"ART-01\",\r\n            \"schoolId\": 255901107,\r\n            \"schoolYear\": 2022,\r\n            \"sectionIdentifier\": \"25590110702Trad504ART0112011\",\r\n            \"sessionName\": \"2021-2022 Fall Semester\"\r\n        },\r\n        \"studentReference\": {\r\n            \"studentUniqueId\": \"johnwick123\"\r\n        },\r\n        \"beginDate\": \"2021-08-23\",\r\n        \"endDate\": \"2021-12-17\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/studentSectionAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"studentSectionAssociations"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Student Section Attendance Events",
+					"item": [
+						{
+							"name": "1) Get Student Section Attendance Events",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/studentSectionAttendanceEvents",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"studentSectionAttendanceEvents"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "20",
+											"disabled": true
+										},
+										{
+											"key": "studentuniqueId",
+											"value": "johnwick123",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post Student Section Attendance Events",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "    {\r\n        \"sectionReference\": {\r\n            \"localCourseCode\": \"ART-03\",\r\n            \"schoolId\": 255901107,\r\n            \"schoolYear\": 2022,\r\n            \"sectionIdentifier\": \"25590110706Trad505ART0312011\",\r\n            \"sessionName\": \"2021-2022 Fall Semester\"\r\n        },\r\n        \"studentReference\": {\r\n            \"studentUniqueId\": \"johnwick123\"\r\n        },\r\n        \"attendanceEventCategoryDescriptor\": \"uri://ed-fi.org/AttendanceEventCategoryDescriptor#Unexcused Absence\",\r\n        \"eventDate\": \"2021-08-25\",\r\n        \"attendanceEventReason\": \"Absent unexcused\",\r\n        \"educationalEnvironmentDescriptor\": \"uri://ed-fi.org/EducationalEnvironmentDescriptor#Classroom\",\r\n        \"classPeriods\": []\r\n  }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/studentSectionAttendanceEvents",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"studentSectionAttendanceEvents"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Student Special Education Program",
+					"item": [
+						{
+							"name": "Get Student Special Education Program Associations",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/studentSpecialEducationProgramAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"studentSpecialEducationProgramAssociations"
+									],
+									"query": [
+										{
+											"key": "StudentUniqueId",
+											"value": "johnwick123",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Post Student Special Education Program Associations",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"educationOrganizationReference\": { \"educationOrganizationId\": 255901 },\n    \"programReference\": {\n      \"educationOrganizationId\": 255901,\n      \"programName\": \"Special Education\",\n      \"programTypeDescriptor\": \"uri://ed-fi.org/ProgramTypeDescriptor#Special Education\"\n    },\n    \"studentReference\": {\n      \"studentUniqueId\": \"johnwick123\"\n    },\n    \"beginDate\": \"2010-08-30\"\n}"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/studentSpecialEducationProgramAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"studentSpecialEducationProgramAssociations"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Extensions",
+					"item": [
+						{
+							"name": "DCPS",
+							"item": [
+								{
+									"name": "GradePostControl",
+									"item": [
+										{
+											"name": "GradePostControl",
+											"request": {
+												"auth": {
+													"type": "noauth"
+												},
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"type": "text",
+														"value": "Bearer {{Token}}"
+													}
+												],
+												"url": {
+													"raw": "{{ApiUrlBase}}/dcps/GradePostControls",
+													"host": [
+														"{{ApiUrlBase}}"
+													],
+													"path": [
+														"dcps",
+														"GradePostControls"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "GradePostControl",
+											"request": {
+												"auth": {
+													"type": "noauth"
+												},
+												"method": "POST",
+												"header": [
+													{
+														"key": "Authorization",
+														"type": "text",
+														"value": "Bearer {{Token}}"
+													},
+													{
+														"key": "Content-Type",
+														"type": "text",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"gpooid\": \"string\",\n  \"gpocriteria\": \"string\",\n  \"gpocriteriatype\": \"string\",\n  \"gpoenddate\": \"2021-06-28\",\n  \"gpogradetype\": 5,\n  \"gpostartdate\": \"2021-06-28\",\n  \"gposummaryview\": \"string\",\n  \"schoolId\": \"string\",\n  \"schoolYear\": \"string\",\n  \"termDescriptorID\": \"string\"\n}"
+												},
+												"url": {
+													"raw": "{{ApiUrlBase}}/dcps/GradePostControls",
+													"host": [
+														"{{ApiUrlBase}}"
+													],
+													"path": [
+														"dcps",
+														"GradePostControls"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "GradePostControl",
+											"request": {
+												"auth": {
+													"type": "noauth"
+												},
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Authorization",
+														"type": "text",
+														"value": "Bearer {{Token}}"
+													},
+													{
+														"key": "Content-Type",
+														"type": "text",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"gpooid\": \"idx\",\n  \"gpocriteria\": \"crit\",\n  \"gpocriteriatype\": \"ctype\",\n  \"gpoenddate\": \"2021-06-28\",\n  \"gpogradetype\": 5,\n  \"gpostartdate\": \"2021-06-28\",\n  \"gposummaryview\": \"sumview\",\n  \"schoolId\": \"1234\",\n  \"schoolYear\": \"2011\",\n  \"termDescriptorID\": \"tdid01\"\n}"
+												},
+												"url": {
+													"raw": "{{ApiUrlBase}}/dcps/GradePostControls/e52fa11ebe1d413499f6aad178721114",
+													"host": [
+														"{{ApiUrlBase}}"
+													],
+													"path": [
+														"dcps",
+														"GradePostControls",
+														"e52fa11ebe1d413499f6aad178721114"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "GradePostControl",
+											"request": {
+												"auth": {
+													"type": "noauth"
+												},
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Authorization",
+														"type": "text",
+														"value": "Bearer {{Token}}"
+													},
+													{
+														"key": "Content-Type",
+														"type": "text",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": ""
+												},
+												"url": {
+													"raw": "{{ApiUrlBase}}/dcps/GradePostControls/1cd1750f15e34545b9c6c1fe1e41b060",
+													"host": [
+														"{{ApiUrlBase}}"
+													],
+													"path": [
+														"dcps",
+														"GradePostControls",
+														"1cd1750f15e34545b9c6c1fe1e41b060"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "DCPSGraduationPlan",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer {{Token}}"
+											}
+										],
+										"url": {
+											"raw": "{{ApiUrlBase}}/dcps/DCPSGraduationPlans",
+											"host": [
+												"{{ApiUrlBase}}"
+											],
+											"path": [
+												"dcps",
+												"DCPSGraduationPlans"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "DCPSGraduationPlan",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer {{Token}}"
+											},
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"graduationPlanTypeDescriptor\": \"uri://ed-fi.org/GraduationPlanTypeDescriptor#Standard\",\n  \"educationOrganizationReference\": { \"educationOrganizationId\": 255901 },\n  \"collegeLevelCareerPrep\": \"yes\",\n  \"diplomaType\": \"string\",\n  \"electives\": \"string\",\n  \"graduationPlanDescription\": \"string\",\n  \"hideIndicator\": \"1\",\n  \"individualPlan\": true,\n  \"obsoleteIndicator\": \"1\",\n  \"schoolYear\": 2011,\n  \"serviceLearningHours\": \"string\",\n  \"shortDescription\": \"string\",\n  \"totalRequiredCreditConversion\": 0,\n  \"totalRequiredCredits\": 0,\n  \"totalRequiredCreditTypeDescriptor\": \"uri://ed-fi.org/CreditTypeDescriptor#Other\",\n  \"updateNightly\": \"string\"\n}"
+										},
+										"url": {
+											"raw": "{{ApiUrlBase}}/dcps/DCPSGraduationPlans",
+											"host": [
+												"{{ApiUrlBase}}"
+											],
+											"path": [
+												"dcps",
+												"DCPSGraduationPlans"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "GraduationRequirement",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer {{Token}}"
+											}
+										],
+										"url": {
+											"raw": "{{ApiUrlBase}}/dcps/GraduationRequirements",
+											"host": [
+												"{{ApiUrlBase}}"
+											],
+											"path": [
+												"dcps",
+												"GraduationRequirements"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "GraduationRequirement",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer {{Token}}"
+											},
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{  \n  \"graduationRequirementCode\": \"string\",\n  \"dcpsGraduationPlanReference\": {\n    \"educationOrganizationId\": 255901,\n    \"graduationPlanTypeDescriptor\": \"uri://ed-fi.org/GraduationPlanTypeDescriptor#Standard\"\n  },\n  \"description\": \"string\",\n  \"excludeFromTotalIndicator\": \"1\",\n  \"priority\": 1,\n  \"requiredUnit\": 1,\n  \"requirementType\": 3\n}"
+										},
+										"url": {
+											"raw": "{{ApiUrlBase}}/dcps/GraduationRequirements",
+											"host": [
+												"{{ApiUrlBase}}"
+											],
+											"path": [
+												"dcps",
+												"GraduationRequirements"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "GraduationCourseRequirement",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer {{Token}}"
+											}
+										],
+										"url": {
+											"raw": "{{ApiUrlBase}}/dcps/GraduationCourseRequirements",
+											"host": [
+												"{{ApiUrlBase}}"
+											],
+											"path": [
+												"dcps",
+												"GraduationCourseRequirements"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "GraduationCourseRequirement",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer {{Token}}"
+											},
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"courseCode\": \"coursecode\",\n  \"graduationRequirementReference\": {\n    \"educationOrganizationId\": 255901,\n    \"graduationPlanTypeDescriptor\": \"uri://ed-fi.org/GraduationPlanTypeDescriptor#Standard\",\n    \"graduationRequirementCode\": \"string\"\n  },\n  \"coursePriority\": 1,\n  \"partialCredit\": 2\n}\n "
+										},
+										"url": {
+											"raw": "{{ApiUrlBase}}/dcps/GraduationCourseRequirements",
+											"host": [
+												"{{ApiUrlBase}}"
+											],
+											"path": [
+												"dcps",
+												"GraduationCourseRequirements"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "StudentGraduationPlan",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer {{Token}}"
+											}
+										],
+										"url": {
+											"raw": "{{ApiUrlBase}}/dcps/StudentGraduationPlans",
+											"host": [
+												"{{ApiUrlBase}}"
+											],
+											"path": [
+												"dcps",
+												"StudentGraduationPlans"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "StudentGraduationPlan",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer {{Token}}"
+											},
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"graduationSchoolYear\": 2011,\n  \"dcpsGraduationPlanReference\": {\n    \"educationOrganizationId\": 255901,\n    \"graduationPlanTypeDescriptor\": \"uri://ed-fi.org/GraduationPlanTypeDescriptor#Standard\"\n  },\n  \"studentReference\": { \"studentUniqueId\": \"604821\" },\n  \"lastModified\": 0,\n  \"posEffectiveDate\": \"2021-06-28\",\n  \"primaryProgramIndicator\": \"1\",\n  \"requirementWaiver\": \"2\"\n}"
+										},
+										"url": {
+											"raw": "{{ApiUrlBase}}/dcps/StudentGraduationPlans",
+											"host": [
+												"{{ApiUrlBase}}"
+											],
+											"path": [
+												"dcps",
+												"StudentGraduationPlans"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "StudentGraduationRequirementProgress",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer {{Token}}"
+											}
+										],
+										"url": {
+											"raw": "{{ApiUrlBase}}/dcps/StudentGraduationRequirementProgresses",
+											"host": [
+												"{{ApiUrlBase}}"
+											],
+											"path": [
+												"dcps",
+												"StudentGraduationRequirementProgresses"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "StudentGraduationRequirementProgress",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer {{Token}}"
+											},
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"runDate\": \"2021-06-28\",\n  \"schoolYear\": 2011,\n  \"graduationRequirementReference\": {\n    \"educationOrganizationId\": 255901,\n    \"graduationPlanTypeDescriptor\": \"uri://ed-fi.org/GraduationPlanTypeDescriptor#Standard\",\n    \"graduationRequirementCode\": \"string\"\n  },\n  \"schoolReference\": { \"schoolId\": 255901107 },\n  \"studentReference\": { \"studentUniqueId\": \"604821\" },\n  \"graduationSchoolYear\": 0,\n  \"grhStatus\": 0,\n  \"unitGained\": 0,\n  \"unitInProgress\": 0,\n  \"unitRequired\": 0,\n  \"unitWaived\": 0\n}"
+										},
+										"url": {
+											"raw": "{{ApiUrlBase}}/dcps/StudentGraduationRequirementProgresses",
+											"host": [
+												"{{ApiUrlBase}}"
+											],
+											"path": [
+												"dcps",
+												"StudentGraduationRequirementProgresses"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "StaffVictims",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer {{Token}}"
+											}
+										],
+										"url": {
+											"raw": "{{ApiUrlBase}}/dcps/StaffVictims",
+											"host": [
+												"{{ApiUrlBase}}"
+											],
+											"path": [
+												"dcps",
+												"StaffVictims"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "StaffVictims",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer {{Token}}"
+											},
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"disciplineIncidentReference\": {\n    \"incidentIdentifier\": \"1\",\n    \"schoolId\": 255901107\n  },\n  \"firstName\": \"john\",\n  \"lastSurname\": \"wat\"\n}"
+										},
+										"url": {
+											"raw": "{{ApiUrlBase}}/dcps/StaffVictims",
+											"host": [
+												"{{ApiUrlBase}}"
+											],
+											"path": [
+												"dcps",
+												"StaffVictims"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "StudentAttendancePlan",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer {{Token}}"
+											}
+										],
+										"url": {
+											"raw": "{{ApiUrlBase}}/dcps/StudentAttendancePlans",
+											"host": [
+												"{{ApiUrlBase}}"
+											],
+											"path": [
+												"dcps",
+												"StudentAttendancePlans"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "StudentAttendancePlan",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer {{Token}}"
+											},
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"sepoid\": \"1\",\n  \"schoolReference\": { \"schoolId\": 255901107 },\n  \"studentReference\": { \"studentUniqueId\": \"604821\" },\n  \"effectiveDate\": \"2021-06-28\",\n  \"endDate\": \"2021-06-28\",\n  \"lastMeetingDate\": \"2021-06-28T17:53:12.263Z\",\n  \"lastModified\": 0,\n  \"reviewDate\": \"2021-06-28T17:53:12.263Z\",\n  \"schoolYearEndDate\": \"2021-06-28\",\n  \"schoolYearStartDate\": \"2021-06-28\",\n  \"sstPreparationNotes\": \"string\",\n  \"status\": 0\n}"
+										},
+										"url": {
+											"raw": "{{ApiUrlBase}}/dcps/StudentAttendancePlans",
+											"host": [
+												"{{ApiUrlBase}}"
+											],
+											"path": [
+												"dcps",
+												"StudentAttendancePlans"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "StudentAttendanceIntervention",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer {{Token}}"
+											}
+										],
+										"url": {
+											"raw": "{{ApiUrlBase}}/dcps/StudentAttendanceInterventions",
+											"host": [
+												"{{ApiUrlBase}}"
+											],
+											"path": [
+												"dcps",
+												"StudentAttendanceInterventions"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "StudentAttendanceIntervention",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer {{Token}}"
+											},
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"interventionJournalType\": \"string\",\n  \"journalEntryDate\": \"2021-06-28\",\n  \"seeoid\": \"string\",\n  \"seesepoid\": \"string\",\n  \"segoid\": \"string\",\n  \"studentAttendancePlanReference\": {\n    \"schoolId\": 255901107,\n    \"sepoid\": \"1\",\n    \"studentUniqueId\": \"604821\"\n  },\n  \"actionStepsOther1\": \"string\",\n  \"actionStepsOther2\": \"string\",\n  \"actionStepsSchoolPersonnel\": \"string\",\n  \"actionStepsStudentFamily1\": \"string\",\n  \"actionStepsStudentFamily2\": \"string\",\n  \"barriersFamilyInput1\": \"string\",\n  \"barriersFamilyInput2\": \"string\",\n  \"barriersOther1\": \"string\",\n  \"barriersOther2\": \"string\",\n  \"barriersStaffInput1\": \"string\",\n  \"barriersStaffInput2\": \"string\",\n  \"barriersStudentInput1\": \"string\",\n  \"barriersStudentInput2\": \"string\",\n  \"category\": \"string\",\n  \"cfsaReferralDate\": \"2021-06-28\",\n  \"communityReferrals\": \"string\",\n  \"communityReferralsOther\": \"string\",\n  \"dateCentralSubmittedToCourt\": \"2021-06-28\",\n  \"dateReceivedByCentral\": \"2021-06-28\",\n  \"dateSubmittedToCentral\": \"2021-06-28\",\n  \"homeVisitDate\": \"2021-06-28\",\n  \"interventionEntryDate\": \"2021-06-28\",\n  \"interventionType\": \"string\",\n  \"locationOfMeetingOther\": \"string\",\n  \"meetingHeldDate\": \"2021-06-28\",\n  \"meetingLocation\": \"string\",\n  \"policeConferenceHeld\": \"string\",\n  \"subcategory\": \"string\"\n}"
+										},
+										"url": {
+											"raw": "{{ApiUrlBase}}/dcps/StudentAttendanceInterventions",
+											"host": [
+												"{{ApiUrlBase}}"
+											],
+											"path": [
+												"dcps",
+												"StudentAttendanceInterventions"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "GradeTranscriptDefinition",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer {{Token}}"
+											}
+										],
+										"url": {
+											"raw": "{{ApiUrlBase}}/dcps/GradeTranscriptDefinitions",
+											"host": [
+												"{{ApiUrlBase}}"
+											],
+											"path": [
+												"dcps",
+												"GradeTranscriptDefinitions"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "GradeTranscriptDefinition",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer {{Token}}"
+											},
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"gradeTranscriptDefinitionId\": \"gtd01\",\n  \"auditType\": 0,\n  \"description\": \"string\",\n  \"name\": \"string\"\n}"
+										},
+										"url": {
+											"raw": "{{ApiUrlBase}}/dcps/GradeTranscriptDefinitions",
+											"host": [
+												"{{ApiUrlBase}}"
+											],
+											"path": [
+												"dcps",
+												"GradeTranscriptDefinitions"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "GradeGPADefinition",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer {{Token}}"
+											}
+										],
+										"url": {
+											"raw": "{{ApiUrlBase}}/dcps/GradeGPADefinitions",
+											"host": [
+												"{{ApiUrlBase}}"
+											],
+											"path": [
+												"dcps",
+												"GradeGPADefinitions"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "GradeGPADefinition",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer {{Token}}"
+											},
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"gradeGPADefinitionId\": \"gg01\",\n  \"gradeTranscriptDefinitionReference\": { \"gradeTranscriptDefinitionId\": \"gtd01\" },\n  \"courseMemberType\": 0,\n  \"courseWeightType\": 0,\n  \"gradeLevelEnd\": \"string\",\n  \"gradeLevelStart\": \"string\",\n  \"name\": \"string\"\n}"
+										},
+										"url": {
+											"raw": "{{ApiUrlBase}}/dcps/GradeGPADefinitions",
+											"host": [
+												"{{ApiUrlBase}}"
+											],
+											"path": [
+												"dcps",
+												"GradeGPADefinitions"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "StudentGradePoint",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer {{Token}}"
+											}
+										],
+										"url": {
+											"raw": "{{ApiUrlBase}}/dcps/StudentGradePoints",
+											"host": [
+												"{{ApiUrlBase}}"
+											],
+											"path": [
+												"dcps",
+												"StudentGradePoints"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "StudentGradePoint",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer {{Token}}"
+											},
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"studentGradePointIdentifier\": \"id1\",\n  \"gradeGPADefinitionReference\": { \"gradeGPADefinitionId\": \"gg01\" },\n  \"schoolReference\": { \"schoolId\": 255901107 },\n  \"studentReference\": { \"studentUniqueId\": \"604821\" },\n  \"classRank\": 0,\n  \"classSize\": 0,\n  \"courseWeight\": 0,\n  \"cumulativeCourseWeight\": 0,\n  \"cumulativeGPA\": 0,\n  \"cumulativeGradePoints\": 0,\n  \"dateCalculated\": \"2021-06-28\",\n  \"gradePointAverage\": 0,\n  \"gradePoints\": 0,\n  \"schoolYear\": 0\n}"
+										},
+										"url": {
+											"raw": "{{ApiUrlBase}}/dcps/StudentGradePoints",
+											"host": [
+												"{{ApiUrlBase}}"
+											],
+											"path": [
+												"dcps",
+												"StudentGradePoints"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "UserInformation",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer {{Token}}"
+											}
+										],
+										"url": {
+											"raw": "{{ApiUrlBase}}/dcps/UserInformation",
+											"host": [
+												"{{ApiUrlBase}}"
+											],
+											"path": [
+												"dcps",
+												"UserInformation"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "UserInformation",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer {{Token}}"
+											},
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"userIdentifier\": 1,\n  \"firstName\": \"john\",\n  \"lastName\": \"koar\",\n  \"personIdentifier\": \"p123\",\n  \"userFullName\": \"John Loar\",\n  \"userLoginName\": \"JLo\"\n}"
+										},
+										"url": {
+											"raw": "{{ApiUrlBase}}/dcps/UserInformation",
+											"host": [
+												"{{ApiUrlBase}}"
+											],
+											"path": [
+												"dcps",
+												"UserInformation"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "scheduleCache",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer {{Token}}"
+											}
+										],
+										"url": {
+											"raw": "{{ApiUrlBase}}/dcps/scheduleCaches",
+											"host": [
+												"{{ApiUrlBase}}"
+											],
+											"path": [
+												"dcps",
+												"scheduleCaches"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "scheduleCache",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer {{Token}}"
+											},
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"scheduleCacheIdentifier\": 1,\n  \"absentIndicator\": 0,\n  \"bellPeriodID\": \"string\",\n  \"bellPeriodNumber\": 0,\n  \"changeSinceAttendanceCalc\": 0,\n  \"classPeriodName\": \"string\",\n  \"countInAttendance\": \"string\",\n  \"dayID\": \"string\",\n  \"excusedIndicator\": 0,\n  \"initialTimestamp\": 0,\n  \"lastModTimestamp\": 0,\n  \"lastProcessedByP2D\": 0,\n  \"localStudentId\": \"string\",\n  \"otherCode\": \"string\",\n  \"otherCode2\": \"string\",\n  \"periodID\": \"string\",\n  \"periodNumber\": 0,\n  \"periodScheduledIndicator\": 0,\n  \"presentIndicator\": 0,\n  \"primaryStaffID\": \"string\",\n  \"reasonCode\": \"string\",\n  \"scheduleDate\": \"2021-06-29\",\n  \"schoolId\": \"string\",\n  \"schoolYearEnd\": 0,\n  \"sectionView\": \"string\",\n  \"staffView\": \"string\",\n  \"studentCalendarCode\": \"string\",\n  \"tardyIndicator\": 0,\n  \"termCode\": \"string\"\n}"
+										},
+										"url": {
+											"raw": "{{ApiUrlBase}}/dcps/scheduleCaches",
+											"host": [
+												"{{ApiUrlBase}}"
+											],
+											"path": [
+												"dcps",
+												"scheduleCaches"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "PeriodAttendanceReason",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer {{Token}}"
+											}
+										],
+										"url": {
+											"raw": "{{ApiUrlBase}}/dcps/periodAttendanceReasons",
+											"host": [
+												"{{ApiUrlBase}}"
+											],
+											"path": [
+												"dcps",
+												"periodAttendanceReasons"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "PeriodAttendanceReason",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer {{Token}}"
+											},
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"reasonCode\": \"string\",\n  \"description\": \"string\",\n  \"disabledIndicator\": \"0\",\n  \"isa\": \"string\",\n  \"localCode\": \"string\"\n}"
+										},
+										"url": {
+											"raw": "{{ApiUrlBase}}/dcps/periodAttendanceReasons",
+											"host": [
+												"{{ApiUrlBase}}"
+											],
+											"path": [
+												"dcps",
+												"periodAttendanceReasons"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "dailyAttendanceReasons",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer {{Token}}"
+											}
+										],
+										"url": {
+											"raw": "{{ApiUrlBase}}/dcps/dailyAttendanceReasons",
+											"host": [
+												"{{ApiUrlBase}}"
+											],
+											"path": [
+												"dcps",
+												"dailyAttendanceReasons"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "dailyAttendanceReasons",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer {{Token}}"
+											},
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"reasonCode\": \"string\",\n  \"description\": \"string\",\n  \"disabledIndicator\": \"1\",\n  \"isa\": \"string\",\n  \"localCode\": \"string\"\n}"
+										},
+										"url": {
+											"raw": "{{ApiUrlBase}}/dcps/dailyAttendanceReasons",
+											"host": [
+												"{{ApiUrlBase}}"
+											],
+											"path": [
+												"dcps",
+												"dailyAttendanceReasons"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "disciplineActionWorkflows",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer {{Token}}"
+											}
+										],
+										"url": {
+											"raw": "{{ApiUrlBase}}/dcps/disciplineActionWorkflows",
+											"host": [
+												"{{ApiUrlBase}}"
+											],
+											"path": [
+												"dcps",
+												"disciplineActionWorkflows"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "disciplineActionWorkflows",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer {{Token}}"
+											},
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"workflowId\": \"string\",\n  \"disciplineActionReference\": {\n    \"disciplineActionIdentifier\": \"1\",\n    \"disciplineDate\": \"2012-02-09\",\n    \"studentUniqueId\": \"605275\"\n  },\n  \"approveDate\": \"2021-06-29\",\n  \"beginDate\": \"2021-06-29\",\n  \"stageDate\": \"2021-06-29\",\n  \"stageTypeDescription\": \"string\",\n  \"typeDescription\": \"string\"\n}"
+										},
+										"url": {
+											"raw": "{{ApiUrlBase}}/dcps/disciplineActionWorkflows",
+											"host": [
+												"{{ApiUrlBase}}"
+											],
+											"path": [
+												"dcps",
+												"disciplineActionWorkflows"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "courseTranscriptSectionAssociations",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer {{Token}}"
+											}
+										],
+										"url": {
+											"raw": "{{ApiUrlBase}}/dcps/courseTranscriptSectionAssociations",
+											"host": [
+												"{{ApiUrlBase}}"
+											],
+											"path": [
+												"dcps",
+												"courseTranscriptSectionAssociations"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "courseTranscriptSectionAssociations",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer {{Token}}"
+											},
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"courseTranscriptReference\": {\n    \"courseAttemptResultDescriptor\": \"uri://ed-fi.org/CourseAttemptResultDescriptor#Pass\",\n    \"courseCode\": \"ART-01\",\n    \"courseEducationOrganizationId\": 255901107,\n    \"educationOrganizationId\": 255901107,\n    \"schoolYear\": 2011,\n    \"studentUniqueId\": \"605230\",\n    \"termDescriptor\": \"uri://ed-fi.org/TermDescriptor#Fall Semester\"\n  },\n  \"sectionReference\": {\n    \"localCourseCode\": \"ELA-01\",\n    \"schoolId\": 255901107,\n    \"schoolYear\": 2011,\n    \"sectionIdentifier\": \"25590110701Trad102ELA0112011\",\n    \"sessionName\": \"2010-2011 Fall Semester\"\n  }\n}"
+										},
+										"url": {
+											"raw": "{{ApiUrlBase}}/dcps/courseTranscriptSectionAssociations",
+											"host": [
+												"{{ApiUrlBase}}"
+											],
+											"path": [
+												"dcps",
+												"courseTranscriptSectionAssociations"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "NM-PED",
+							"item": [
+								{
+									"name": "Transportation",
+									"item": [
+										{
+											"name": "LEATransportations",
+											"request": {
+												"auth": {
+													"type": "noauth"
+												},
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{Token}}",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{ApiBaseUrl}}nmped/localEducationAgencyTransportations",
+													"host": [
+														"{{ApiBaseUrl}}nmped"
+													],
+													"path": [
+														"localEducationAgencyTransportations"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Post LEATransportations",
+											"request": {
+												"auth": {
+													"type": "noauth"
+												},
+												"method": "POST",
+												"header": [
+													{
+														"key": "Authorization",
+														"type": "text",
+														"value": "Bearer {{Token}}"
+													},
+													{
+														"key": "Content-Type",
+														"type": "text",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"studentUniqueId\": \"johnwickThe2nd123\",\n    \"birthDate\": \"1980-04-02\",\n    \"firstName\": \"John\",\n    \"lastSurname\": \"Wick\"\n}"
+												},
+												"url": {
+													"raw": "{{ApiUrl}}/Students",
+													"host": [
+														"{{ApiUrl}}"
+													],
+													"path": [
+														"Students"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "vehicleSnapshots",
+											"request": {
+												"auth": {
+													"type": "noauth"
+												},
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{Token}}",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{ApiBaseUrl}}nmped/vehicleSnapshots",
+													"host": [
+														"{{ApiBaseUrl}}nmped"
+													],
+													"path": [
+														"vehicleSnapshots"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Post vehicleSnapshots",
+											"request": {
+												"auth": {
+													"type": "noauth"
+												},
+												"method": "POST",
+												"header": [
+													{
+														"key": "Authorization",
+														"type": "text",
+														"value": "Bearer {{Token}}"
+													},
+													{
+														"key": "Content-Type",
+														"type": "text",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"studentUniqueId\": \"johnwickThe2nd123\",\n    \"birthDate\": \"1980-04-02\",\n    \"firstName\": \"John\",\n    \"lastSurname\": \"Wick\"\n}"
+												},
+												"url": {
+													"raw": "{{ApiUrl}}/Students",
+													"host": [
+														"{{ApiUrl}}"
+													],
+													"path": [
+														"Students"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "vehicleMileages",
+											"request": {
+												"auth": {
+													"type": "noauth"
+												},
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{Token}}",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{ApiBaseUrl}}nmped/vehicleMileages",
+													"host": [
+														"{{ApiBaseUrl}}nmped"
+													],
+													"path": [
+														"vehicleMileages"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "StudentSpecialEd",
+									"item": [
+										{
+											"name": "StudentSpecialEducationProgramAssociationSpecialEducationProgramEvents",
+											"request": {
+												"auth": {
+													"type": "noauth"
+												},
+												"method": "POST",
+												"header": [
+													{
+														"key": "Authorization",
+														"type": "text",
+														"value": "Bearer {{Token}}"
+													},
+													{
+														"key": "Content-Type",
+														"type": "text",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"studentSpecialEducationProgramAssociationReference\": {\n    \"beginDate\": \"2021-07-25\",\n    \"educationOrganizationId\": 35067116,\n    \"programEducationOrganizationId\": 35067000,\n    \"programName\": \"Special Education\",\n    \"programTypeDescriptor\": \"uri://nmped.org/ProgramTypeDescriptor#Special Education\",\n    \"studentUniqueId\": \"606632158\"\n  },\n  \"eventDate\": \"2021-09-27\",\n  \"specialEducationEventReasonDescriptor\": \"uri://nmped.org/SpecialEducationEventReasonDescriptor#1\",\n  \"specialEducationEventTypeDescriptor\": \"uri://nmped.org/SpecialEducationEventTypeDescriptor#10\",\n  \"specialEducationNonComplianceReasonDescriptor\": \"uri://nmped.org/SpecialEducationNonComplianceReasonDescriptor#20\"\n}"
+												},
+												"url": {
+													"raw": "{{ApiBaseUrl}}nmped/studentSpecialEducationProgramAssociationSpecialEducationProgramEvents",
+													"host": [
+														"{{ApiBaseUrl}}nmped"
+													],
+													"path": [
+														"studentSpecialEducationProgramAssociationSpecialEducationProgramEvents"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "StudentSpecialEducationProgramAssociationSpecialEducationProgramEvents",
+											"request": {
+												"auth": {
+													"type": "noauth"
+												},
+												"method": "GET",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{Token}}",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{ApiBaseUrl}}nmped/studentSpecialEducationProgramAssociationSpecialEducationProgramEvents",
+													"host": [
+														"{{ApiBaseUrl}}nmped"
+													],
+													"path": [
+														"studentSpecialEducationProgramAssociationSpecialEducationProgramEvents"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "BPS",
+							"item": [
+								{
+									"name": "Post Staff License",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer {{Token}}"
+											},
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"licenseApplicableGradeLevels\": \"3rd,4th\",\n    \"licenseIssueDate\": \"2022-02-24\",\n    \"licenseNumber\": \"A22\",\n    \"licenseStateIdentifier\": \"TX\",\n    \"licenseTitle\": \"title\",\n    \"staffReference\": { \"staffUniqueId\": \"207265\" },\n    \"licenseDescription\": \"desc\",\n    \"licenseEffectiveDate\": \"2022-02-24\",\n    \"licenseExpirationDate\": \"2022-02-24\",\n    \"licenseStageDescriptor\": \"uri://mybps.org/LicenseStageDescriptor#Full\",\n    \"licenseStatusDescriptor\": \"uri://mybps.org/LicenseStatusDescriptor#Approved\",\n    \"licensingOrganization\": \"org\"\n  }"
+										},
+										"url": {
+											"raw": "{{ApiBaseUrl}}my-bps/staffLicenses",
+											"host": [
+												"{{ApiBaseUrl}}my-bps"
+											],
+											"path": [
+												"staffLicenses"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Staff License",
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{Token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{ApiBaseUrl}}my-bps/staffLicenses",
+											"host": [
+												"{{ApiBaseUrl}}my-bps"
+											],
+											"path": [
+												"staffLicenses"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Service Centers",
+					"item": [
+						{
+							"name": "2) Get Service Centers",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}/educationServiceCenters",
+									"host": [
+										"{{ApiUrl}}"
+									],
+									"path": [
+										"educationServiceCenters"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "1) GetOAuthToken",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"Token\", responseData.access_token);",
+									"function b(a){return a?(a^Math.random()*16>>a/4).toString(16):([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g,b)}",
+									"postman.setEnvironmentVariable(\"ClientUID\", b());",
+									"postman.setEnvironmentVariable(\"studentUniqueId\", ((Math.random()).toString(16)).slice(-8));",
+									"postman.setEnvironmentVariable(\"schoolId\", \"255901\" + ((Math.random()).toString()).slice(-3));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "Client_id",
+									"value": "{{Key}}",
+									"type": "text"
+								},
+								{
+									"key": "Client_secret",
+									"value": "{{Secret}}",
+									"type": "text"
+								},
+								{
+									"key": "Grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{ApiRoot}}/oauth/token",
+							"host": [
+								"{{ApiRoot}}"
+							],
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "accessTokenUrl",
+				"value": "{{oauthTokenUrl}}",
+				"type": "string"
+			},
+			{
+				"key": "tokenType",
+				"value": "",
+				"type": "string"
+			},
+			{
+				"key": "accessToken",
+				"value": "",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "client_credentials",
+				"type": "string"
+			},
+			{
+				"key": "useBrowser",
+				"value": false,
+				"type": "boolean"
+			},
+			{
+				"key": "clientSecret",
+				"value": "{{ClientSecret}}",
+				"type": "string"
+			},
+			{
+				"key": "clientId",
+				"value": "{{ClientId}}",
+				"type": "string"
+			},
+			{
+				"key": "tokenName",
+				"value": "ODS Token",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "ApiUrl",
+			"value": "https://localhost/edfi_53_mssql/webApi/data/v3/",
+			"type": "string"
+		},
+		{
+			"key": "ClientId",
+			"value": "p3gLQj68sNw7rTlKvqkny",
+			"type": "string"
+		},
+		{
+			"key": "ClientSecret",
+			"value": "CpuDEdXB4tA5Hf1SLk27Q",
+			"type": "string"
+		},
+		{
+			"key": "oauthTokenUrl",
+			"value": "https://localhost/edfi_53_mssql/webApi/oauth/token",
+			"type": "string"
+		}
+	]
+}
