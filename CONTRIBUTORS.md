@@ -1,9 +1,8 @@
 # Contributors List
 
-{CUSTOMIZE THIS FILE by correcting the "contributors graph" link below and
-then removing this note}
-
 This is the list of the project's significant contributors.
+
+Ed-Fi Alliance Customer Success Manangement Team
 
 This does not necessarily list everyone who has contributed code, especially
 since many employees of one corporation may be contributing. To see the full
