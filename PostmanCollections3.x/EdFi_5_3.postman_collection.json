@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "V 2.x",
+			"name": "V 2.x - Out of Date",
 			"item": [
 				{
 					"name": "Assessments",
@@ -895,7 +895,7 @@
 					]
 				},
 				{
-					"name": "Calendar Dates",
+					"name": "CalendarDates",
 					"item": [
 						{
 							"name": "1) Get Calendar Dates",
@@ -978,7 +978,213 @@
 					]
 				},
 				{
-					"name": "CourseOffering",
+					"name": "ClassPeriods",
+					"item": [
+						{
+							"name": "1) Get ClassPeriod",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/ClassPeriods",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"ClassPeriods"
+									],
+									"query": [
+										{
+											"key": "schoolid",
+											"value": "255901001",
+											"disabled": true
+										},
+										{
+											"key": "classperiodname",
+											"value": "99 - Traditional",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post ClassPeriod",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"schoolReference\": {\r\n        \"schoolId\": 255901001\r\n    },\r\n    \"classPeriodName\": \"99 - Traditional\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/ClassPeriods",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"ClassPeriods"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Cohorts",
+					"item": [
+						{
+							"name": "1) Get Cohorts",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Cohorts",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Cohorts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post Cohorts",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "    {\r\n        \"cohortIdentifier\": \"Glee Club\",\r\n        \"educationOrganizationReference\": {\r\n            \"educationOrganizationId\": 255901001\r\n        },\r\n        \"cohortTypeDescriptor\": \"uri://ed-fi.org/cohortTypeDescriptor#Extracurricular Activity\"\r\n    }\r\n"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Cohorts",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Cohorts"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Courses",
+					"item": [
+						{
+							"name": "1) Get Courses",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Courses",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Courses"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1) Get Courses by ShoolId & CourseCode",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Courses?schoolid=255901001&CourseCode=03100502",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Courses"
+									],
+									"query": [
+										{
+											"key": "schoolid",
+											"value": "255901001"
+										},
+										{
+											"key": "CourseCode",
+											"value": "03100502"
+										},
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post Courses",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "    {\r\n        \"courseCode\": \"03100502\",\r\n        \"identificationCodes\": [\r\n            {\r\n                \"courseIdentificationSystemDescriptor\": \"uri://ed-fi.org/CourseIdentificationSystemDescriptor#LEA course code\",\r\n                \"courseCatalogURL\": \"http://www.GBISD.edu/coursecatalog\",\r\n                \"identificationCode\": \"ALG-2\"\r\n            },\r\n            {\r\n                \"courseIdentificationSystemDescriptor\": \"uri://ed-fi.org/CourseIdentificationSystemDescriptor#State course code\",\r\n                \"identificationCode\": \"03100502\"\r\n            }\r\n        ],\r\n        \"educationOrganizationReference\": {\r\n            \"educationOrganizationId\": 255901001\r\n        },\r\n        \"academicSubjectDescriptor\": \"uri://ed-fi.org/AcademicSubjectDescriptor#Mathematics\",\r\n        \"courseTitle\": \"Algebra II\",\r\n        \"numberOfParts\": 1\r\n    }\r\n"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Courses",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Courses"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "CourseOfferings",
 					"item": [
 						{
 							"name": "1) Get CourseOffering",
@@ -1064,7 +1270,7 @@
 					]
 				},
 				{
-					"name": "Course Transcripts",
+					"name": "CourseTranscripts",
 					"item": [
 						{
 							"name": "1) Get Course Transcripts",
@@ -1185,6 +1391,150 @@
 					]
 				},
 				{
+					"name": "DisciplineActions",
+					"item": [
+						{
+							"name": "1) Get DiscripineActions",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/DisciplineActions",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"DisciplineActions"
+									],
+									"query": [
+										{
+											"key": "studentUniqueId",
+											"value": "605275",
+											"disabled": true
+										},
+										{
+											"key": "disciplineDate",
+											"value": "2022-03-09",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post DisciplineActions",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "    {\n        \"disciplineActionIdentifier\": \"1\",\n        \"disciplineDate\": \"2022-03-09\",\n        \"disciplines\": [\n            {\n                \"disciplineDescriptor\": \"uri://ed-fi.org/DisciplineDescriptor#In School Suspension\"\n            }\n        ],\n        \"studentDisciplineIncidentAssociations\": [\n            {\n                \"studentDisciplineIncidentAssociationReference\": {\n                    \"studentUniqueId\": \"605275\",\n                    \"incidentIdentifier\": \"1\",\n                    \"schoolId\": 255901107\n                }\n            }\n        ],\n        \"responsibilitySchoolReference\": {\n            \"schoolId\": 255901107\n        },\n        \"studentReference\": {\n            \"studentUniqueId\": \"605275\"\n        }\n    }"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/DisciplineActions",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"DisciplineActions"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "DisciplineIncidents",
+					"item": [
+						{
+							"name": "1) Get DisciplineIncidents",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/DisciplineIncidents",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"DisciplineIncidents"
+									],
+									"query": [
+										{
+											"key": "incidentIdentifier",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "disciplineDate",
+											"value": "2022-03-09",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post DisciplineIncidents",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "    {\n        \"incidentIdentifier\": \"1\",\n        \"schoolReference\": {\n            \"schoolId\": 255901107\n        },\n        \"incidentDate\": \"2022-03-09\"\n    }"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/DisciplineIncidents",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"DisciplineIncidents"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "EducationOrganizationNetworks",
 					"item": [
 						{
@@ -1236,7 +1586,223 @@
 					]
 				},
 				{
-					"name": "Local Education Agencies",
+					"name": "GradingPeriods",
+					"item": [
+						{
+							"name": "1) Get GradingPeriods",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/GradingPeriods",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"GradingPeriods"
+									],
+									"query": [
+										{
+											"key": "schoolid",
+											"value": "255901001",
+											"disabled": true
+										},
+										{
+											"key": "gradingPeriodDescriptor",
+											"value": "uri://ed-fi.org/GradingPeriodDescriptor#End of Year",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post GradingPeriods",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "    {\r\n       \"gradingPeriodDescriptor\": \"uri://ed-fi.org/GradingPeriodDescriptor#End of Year\",\r\n        \"schoolReference\": {\r\n            \"schoolId\": 255901001\r\n        },\r\n        \"schoolYearTypeReference\": {\r\n            \"schoolYear\": 2022\r\n        },\r\n\r\n        \"periodSequence\": 1,\r\n        \"beginDate\": \"2021-08-23\",\r\n        \"endDate\": \"2022-05-27\",\r\n        \"totalInstructionalDays\": 177\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/GradingPeriods",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"GradingPeriods"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Grades",
+					"item": [
+						{
+							"name": "1) Get Grades",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Grades",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Grades"
+									],
+									"query": [
+										{
+											"key": "schoolid",
+											"value": "255901001",
+											"disabled": true
+										},
+										{
+											"key": "studentUniqueId",
+											"value": "604822",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post Grades",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "    {\r\n        \"gradingPeriodReference\": {\r\n            \"gradingPeriodDescriptor\": \"uri://ed-fi.org/GradingPeriodDescriptor#First Six Weeks\",\r\n            \"periodSequence\": 1,\r\n            \"schoolId\": 255901001,\r\n            \"schoolYear\": 2022\r\n        },\r\n        \"studentSectionAssociationReference\": {\r\n            \"beginDate\": \"2021-08-23\",\r\n            \"localCourseCode\": \"ALG-1\",\r\n            \"schoolId\": 255901001,\r\n            \"schoolYear\": 2022,\r\n            \"sectionIdentifier\": \"25590100102Trad220ALG112011\",\r\n            \"sessionName\": \"2021-2022 Fall Semester\",\r\n            \"studentUniqueId\": \"604822\"\r\n        },\r\n        \"gradeTypeDescriptor\": \"uri://ed-fi.org/GradeTypeDescriptor#Grading Period\",\r\n        \"numericGradeEarned\": 70.00,\r\n        \"learningStandardGrades\": [\r\n            {\r\n                \"learningStandardReference\": {\r\n                    \"learningStandardId\": \"111.32.NA.A.1.D\"\r\n                },\r\n                \"numericGradeEarned\": 2\r\n            }\r\n        ]\r\n    }\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Grades",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Grades"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "GraduationPlans",
+					"item": [
+						{
+							"name": "1) Get GraduationPlans",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/GraduationPlans",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"GraduationPlans"
+									],
+									"query": [
+										{
+											"key": "educationOrganizationId",
+											"value": "255901001",
+											"disabled": true
+										},
+										{
+											"key": "graduationPlanTypeDescriptor",
+											"value": "uri://ed-fi.org/GraduationPlanTypeDescriptor#Standard",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post GraduationPlans",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"educationOrganizationReference\": {\r\n        \"educationOrganizationId\": 255901001\r\n    },\r\n    \"graduationSchoolYearTypeReference\": {\r\n        \"schoolYear\": 2022\r\n    },\r\n    \"graduationPlanTypeDescriptor\": \"uri://ed-fi.org/GraduationPlanTypeDescriptor#Standard\",\r\n    \"totalRequiredCredits\": 27.000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/GraduationPlans",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"GraduationPlans"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "LocalEducationAgencies",
 					"item": [
 						{
 							"name": "2) Get Local Education Agencies",
@@ -1363,7 +1929,7 @@
 					]
 				},
 				{
-					"name": "Parent",
+					"name": "Parents",
 					"item": [
 						{
 							"name": "1) Get Parents",
@@ -1635,7 +2201,7 @@
 					]
 				},
 				{
-					"name": "Session",
+					"name": "Sessions",
 					"item": [
 						{
 							"name": "1) Get Session",
@@ -1773,7 +2339,79 @@
 					]
 				},
 				{
-					"name": "Staff Education Organization Assignment",
+					"name": "StaffCohortAssociations",
+					"item": [
+						{
+							"name": "1) Get StaffCohortAssociations",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/StaffCohortAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"StaffCohortAssociations"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "100",
+											"disabled": true
+										},
+										{
+											"key": "staffuniqueid",
+											"value": "6013",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post StaffCohortAssociations",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"staffUniqueId\": \"6013\",\n    \"firstName\": \"Douglas\",\n    \"lastSurname\": \"Loyo\"\n}"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Staffs",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Staffs"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "StaffEducationOrganizationAssignments",
 					"item": [
 						{
 							"name": "1) Get StaffEducationOrganizationAssignmentAssociation",
@@ -1834,7 +2472,7 @@
 					]
 				},
 				{
-					"name": "Staff Education OrganizationEmployment",
+					"name": "StaffEducationOrganizationEmployments",
 					"item": [
 						{
 							"name": "1) Get StaffEducationOrganizationEmploymentAssociations",
@@ -1901,7 +2539,7 @@
 					]
 				},
 				{
-					"name": "Staff School Association",
+					"name": "StaffSchoolAssociations",
 					"item": [
 						{
 							"name": "1) Get Staff School Association",
@@ -1953,6 +2591,78 @@
 									],
 									"path": [
 										"staffSchoolAssociations"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "StaffSectionAssociations",
+					"item": [
+						{
+							"name": "1) Get StaffSectionAssociations",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/StaffSectionAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"StaffSectionAssociations"
+									],
+									"query": [
+										{
+											"key": "staffuniqueid",
+											"value": "207239",
+											"disabled": true
+										},
+										{
+											"key": "sectionIdentifier",
+											"value": "25590100102Trad220ALG112011",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post StaffSectionAssociations",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "\n    {\n        \"sectionReference\": {\n            \"localCourseCode\": \"ALG-1\",\n            \"schoolId\": 255901001,\n            \"schoolYear\": 2022,\n            \"sectionIdentifier\": \"25590100102Trad220ALG112011\",\n            \"sessionName\": \"2021-2022 Fall Semester\"\n        },\n                \"staffReference\": {\n            \"staffUniqueId\": \"207239\"\n        },\n        \"beginDate\": \"2021-08-23\",\n        \"classroomPositionDescriptor\": \"uri://ed-fi.org/ClassroomPositionDescriptor#Teacher of Record\",\n        \"endDate\": \"2021-12-17\"\n    }\n "
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/StaffSectionAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"StaffSectionAssociations"
 									]
 								}
 							},
@@ -2070,7 +2780,7 @@
 					]
 				},
 				{
-					"name": "Student Academic Records",
+					"name": "StudentAcademicRecords",
 					"item": [
 						{
 							"name": "1) Get Student Academic Records",
@@ -2137,7 +2847,213 @@
 					]
 				},
 				{
-					"name": "Fails Student Education Organization",
+					"name": "StudentCohortAssociations",
+					"item": [
+						{
+							"name": "1) Get StudentCohortAssociations",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/StudentCohortAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"StudentCohortAssociations"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "100",
+											"disabled": true
+										},
+										{
+											"key": "staffuniqueid",
+											"value": "6013",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post StudentCohortAssociations",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "\n{\n    \"beginDate\": \"2021-08-23\",\n    \"cohortReference\": {\n        \"cohortIdentifier\": \"Glee Club\",\n        \"educationOrganizationId\": 255901001\n        }, \n    \"studentReference\": {\n    \"studentUniqueId\": \"604822\"\n        }\n}"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/StudentCohortAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"StudentCohortAssociations"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "StudentCTEProgramAssociations",
+					"item": [
+						{
+							"name": "1) Get StudentCTEProgramAssociations",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/StudentCTEProgramAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"StudentCTEProgramAssociations"
+									],
+									"query": [
+										{
+											"key": "studentUniqueId",
+											"value": "johnwick123",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post StudentCTEProgramAssociations",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ProgramReference\": { \n        \"educationOrganizationId\": 255901, \n        \"programName\": \"Career and Technical Education\",\n        \"programTypeDescriptor\": \"uri://ed-fi.org/ProgramTypeDescriptor#Career and Technical Education\"\n        },\n    \"educationOrganizationReference\": { \"educationOrganizationId\": 255901107 },\n    \"studentReference\": { \"studentUniqueId\": \"johnwick123\" },\n    \"beginDate\": \"2021-08-23\"\n  }"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/StudentCTEProgramAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"StudentCTEProgramAssociations"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "StudentDisciplineIncidentAssociations",
+					"item": [
+						{
+							"name": "1) Get StudentDisciplineIncidentAssociations",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/StudentDisciplineIncidentAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"StudentDisciplineIncidentAssociations"
+									],
+									"query": [
+										{
+											"key": "studentUniqueId",
+											"value": "johnwick123",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post StudentDisciplineIncidentAssociations",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"disciplineIncidentReference\": {\n            \"incidentIdentifier\": \"1\",\n            \"schoolId\": 255901107\n        },\n        \"studentReference\": {\n            \"studentUniqueId\": \"605275\"\n        },\n        \"studentParticipationCodeDescriptor\": \"uri://ed-fi.org/StudentParticipationCodeDescriptor#Perpetrator\"\n   }\n"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/StudentDisciplineIncidentAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"StudentDisciplineIncidentAssociations"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Fails - StudentEducationOrganizations",
 					"item": [
 						{
 							"name": "1) Get Student Education Organization Association",
@@ -2240,7 +3156,383 @@
 					]
 				},
 				{
-					"name": "Student Parent Association",
+					"name": "Fails Student Education Organization Copy",
+					"item": [
+						{
+							"name": "1) Get Student Education Organization Association",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/studentEducationOrganizationAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"studentEducationOrganizationAssociations"
+									],
+									"query": [
+										{
+											"key": "studentUniqueId",
+											"value": "johnwick123",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post Student Education Organization Association",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"educationOrganizationReference\": { \"educationOrganizationId\": 255901107 },\n    \"studentReference\": { \"studentUniqueId\": \"johnwick123\" },\n    \"sexDescriptor\": \"uri://ed-fi.org/SexDescriptor#Male\",\n    \"electronicMails\": [\n      {\n        \"electronicMailAddress\": \"*john@wick.com\",\n        \"electronicMailTypeDescriptor\": \"uri://ed-fi.org/ElectronicMailTypeDescriptor#Organization\"\n      }\n    ]\n  }"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/studentEducationOrganizationAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"studentEducationOrganizationAssociations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fails 405 - 6) PUT student Education Organization Association",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"educationOrganizationReference\": { \"educationOrganizationId\": 255901 },\n        \"studentReference\": { \"studentUniqueId\": \"604821\" },\n        \"hispanicLatinoEthnicity\": false,\n        \"oldEthnicityDescriptor\": \"uri://ed-fi.org/OldEthnicityDescriptor#Black, Not Of Hispanic Origin\",\n        \"sexDescriptor\": \"uri://ed-fi.org/SexDescriptor#Male\",\n        \"addresses\": [\n            {\n                \"addressTypeDescriptor\": \"uri://ed-fi.org/AddressTypeDescriptor#Home\",\n                \"city\": \"Grand Bend\",\n                \"postalCode\": \"78834\",\n                \"stateAbbreviationDescriptor\": \"uri://ed-fi.org/StateAbbreviationDescriptor#TX\",\n                \"streetNumberName\": \"263 New Street\",\n                \"nameOfCounty\": \"WILLISTON\",\n                \"periods\": []\n            }\n        ],\n        \"cohortYears\": [],\n        \"disabilities\": [],\n        \"electronicMails\": [ { \"electronicMailAddress\": \"tosc.dzre@example.com\", \"electronicMailTypeDescriptor\": \"uri://ed-fi.org/ElectronicMailTypeDescriptor#Organization\" } ],\n        \"internationalAddresses\": [],\n        \"languages\": [],\n        \"programParticipations\": [],\n        \"races\": [ { \"raceDescriptor\": \"uri://ed-fi.org/RaceDescriptor#White\" }],\n        \"studentCharacteristics\": [],\n        \"studentIdentificationCodes\": [\n            {\n                \"assigningOrganizationIdentificationCode\": \"Local\",\n                \"studentIdentificationSystemDescriptor\": \"uri://ed-fi.org/StudentIdentificationSystemDescriptor#Local\",\n                \"identificationCode\": \"821\"\n            },\n            {\n                \"assigningOrganizationIdentificationCode\": \"SSN\",\n                \"studentIdentificationSystemDescriptor\": \"uri://ed-fi.org/StudentIdentificationSystemDescriptor#SSN\",\n                \"identificationCode\": \"1304682336\"\n            }\n        ],\n        \"studentIndicators\": [],\n        \"telephones\": [],\n        \"_ext\": { \"MyBPS\": { \"aggregatedRaceDescriptor\": \"uri://mybps.org/AggregatedRaceDescriptor#Hispanic\" } }\n    }"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}/studentEducationOrganizationAssociations/bd79ae826d9548898b56112542563524",
+									"host": [
+										"{{ApiUrl}}"
+									],
+									"path": [
+										"studentEducationOrganizationAssociations",
+										"bd79ae826d9548898b56112542563524"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "StudentHomelessProgramAssociations",
+					"item": [
+						{
+							"name": "1) Get StudentHomelessProgramAssociations",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/StudentHomelessProgramAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"StudentHomelessProgramAssociations"
+									],
+									"query": [
+										{
+											"key": "studentUniqueId",
+											"value": "johnwick123",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post StudentHomelessProgramAssociations",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ProgramReference\": { \n        \"educationOrganizationId\": 255901, \n        \"programName\": \"Homeless\",\n        \"programTypeDescriptor\": \"uri://ed-fi.org/ProgramTypeDescriptor#Homeless\"\n        },\n    \"educationOrganizationReference\": { \"educationOrganizationId\": 255901107 },\n    \"studentReference\": { \"studentUniqueId\": \"johnwick123\" },\n    \"beginDate\": \"2021-08-23\"\n  }"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/StudentHomelessProgramAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"StudentHomelessProgramAssociations"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "StudentLanguageInstructionProgramAssociations",
+					"item": [
+						{
+							"name": "1) Get StudentLanguageInstructionProgramAssociations",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/StudentLanguageInstructionProgramAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"StudentLanguageInstructionProgramAssociations"
+									],
+									"query": [
+										{
+											"key": "studentUniqueId",
+											"value": "johnwick123",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post StudentLanguageInstructionProgramAssociations",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ProgramReference\": { \n        \"educationOrganizationId\": 255901, \n        \"programName\": \"English as a Second Language (ESL)\",\n        \"programTypeDescriptor\": \"uri://ed-fi.org/ProgramTypeDescriptor#English as a Second Language (ESL)\"\n        },\n    \"educationOrganizationReference\": { \"educationOrganizationId\": 255901107 },\n    \"studentReference\": { \"studentUniqueId\": \"johnwick123\" },\n    \"beginDate\": \"2021-08-23\"\n  }"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/StudentLanguageInstructionProgramAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"StudentLanguageInstructionProgramAssociations"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "StudentMigrantEducationProgramAssociations",
+					"item": [
+						{
+							"name": "1) Get StudentMigrantEducationProgramAssociations",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/StudentMigrantEducationProgramAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"StudentMigrantEducationProgramAssociations"
+									],
+									"query": [
+										{
+											"key": "studentUniqueId",
+											"value": "johnwick123",
+											"disabled": true
+										},
+										{
+											"key": "priorityForServices",
+											"value": "true",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post StudentMigrantEducationProgramAssociations",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ProgramReference\": { \n        \"educationOrganizationId\": 255901, \n        \"programName\": \"Migrant Education\",\n        \"programTypeDescriptor\": \"uri://ed-fi.org/ProgramTypeDescriptor#Migrant Education\"\n        },\n    \"educationOrganizationReference\": { \"educationOrganizationId\": 255901107 },\n    \"studentReference\": { \"studentUniqueId\": \"johnwick123\" },\n    \"beginDate\": \"2021-08-23\",\n    \"lastQualifyingMove\": \"2021-08-24\",\n    \"priorityForServices\": true\n    \n  }"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/StudentMigrantEducationProgramAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"StudentMigrantEducationProgramAssociations"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "StudentNeglectedOrDelinquentProgramAssociations",
+					"item": [
+						{
+							"name": "1) Get StudentNeglectedOrDelinquentProgramAssociations",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/StudentNeglectedOrDelinquentProgramAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"StudentNeglectedOrDelinquentProgramAssociations"
+									],
+									"query": [
+										{
+											"key": "studentUniqueId",
+											"value": "johnwick123",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post StudentNeglectedOrDelinquentProgramAssociations",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ProgramReference\": { \n        \"educationOrganizationId\": 255901, \n        \"programName\": \"Neglected and Delinquent Program\",\n        \"programTypeDescriptor\": \"uri://ed-fi.org/ProgramTypeDescriptor#Neglected and Delinquent Program\"\n        },\n    \"educationOrganizationReference\": { \"educationOrganizationId\": 255901107 },\n    \"studentReference\": { \"studentUniqueId\": \"johnwick123\" },\n    \"beginDate\": \"2021-08-23\"\n  }"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/StudentNeglectedOrDelinquentProgramAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"StudentNeglectedOrDelinquentProgramAssociations"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "StudentParentAssociations",
 					"item": [
 						{
 							"name": "5) Get Student Parent Associations",
@@ -2301,7 +3593,74 @@
 					]
 				},
 				{
-					"name": "Student School Association",
+					"name": "StudentProgramAssociations",
+					"item": [
+						{
+							"name": "1) Get StudentProgramAssociations",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/StudentProgramAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"StudentProgramAssociations"
+									],
+									"query": [
+										{
+											"key": "studentUniqueId",
+											"value": "johnwick123",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post StudentProgramAssociations",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ProgramReference\": { \n        \"educationOrganizationId\": 255901, \n        \"programName\": \"Bilingual\",\n        \"programTypeDescriptor\": \"uri://ed-fi.org/ProgramTypeDescriptor#Bilingual\"\n        },\n    \"educationOrganizationReference\": { \"educationOrganizationId\": 255901107 },\n    \"studentReference\": { \"studentUniqueId\": \"johnwick123\" },\n    \"beginDate\": \"2021-08-23\"\n  }"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/StudentProgramAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"StudentProgramAssociations"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "StudentSchoolAssociations",
 					"item": [
 						{
 							"name": "3) Get StudentSchoolAssociations",
@@ -2407,7 +3766,7 @@
 					]
 				},
 				{
-					"name": "Student School Attendance Events",
+					"name": "StudentSchoolAttendanceEvents",
 					"item": [
 						{
 							"name": "1) Get StudentSchoolAttendanceEvents",
@@ -2474,7 +3833,141 @@
 					]
 				},
 				{
-					"name": "Student Section Associations",
+					"name": "StudentSchoolFoodServiceProgramAssociations",
+					"item": [
+						{
+							"name": "1) Get StudentSchoolFoodServiceProgramAssociations",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/StudentSchoolFoodServiceProgramAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"StudentSchoolFoodServiceProgramAssociations"
+									],
+									"query": [
+										{
+											"key": "studentUniqueId",
+											"value": "johnwick123",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post StudentSchoolFoodServiceProgramAssociations",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ProgramReference\": { \n        \"educationOrganizationId\": 255901, \n        \"programName\": \"School Food Service\",\n        \"programTypeDescriptor\": \"uri://ed-fi.org/ProgramTypeDescriptor#Compensatory Services for Disadvantaged Students\"\n        },\n    \"educationOrganizationReference\": { \"educationOrganizationId\": 255901107 },\n    \"studentReference\": { \"studentUniqueId\": \"johnwick123\" },\n    \"beginDate\": \"2021-08-23\"\n  }"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/StudentSchoolFoodServiceProgramAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"StudentSchoolFoodServiceProgramAssociations"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "StudentSpecialEducationProgramAssociations",
+					"item": [
+						{
+							"name": "1) Get StudentSpecialEducationProgramAssociations",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/StudentSpecialEducationProgramAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"StudentSpecialEducationProgramAssociations"
+									],
+									"query": [
+										{
+											"key": "studentUniqueId",
+											"value": "johnwick123",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post StudentSpecialEducationProgramAssociations",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ProgramReference\": { \n        \"educationOrganizationId\": 255901, \n        \"programName\": \"Special Education\",\n        \"programTypeDescriptor\": \"uri://ed-fi.org/ProgramTypeDescriptor#Special Education\"\n        },\n    \"educationOrganizationReference\": { \"educationOrganizationId\": 255901107 },\n    \"studentReference\": { \"studentUniqueId\": \"johnwick123\" },\n    \"beginDate\": \"2021-08-23\"\n  }"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/StudentSpecialEducationProgramAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"StudentSpecialEducationProgramAssociations"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "StudentSectionAssociations",
 					"item": [
 						{
 							"name": "1) Get Student Section Association",
@@ -2528,7 +4021,7 @@
 					]
 				},
 				{
-					"name": "Student Section Attendance Events",
+					"name": "StudentSectionAttendanceEvents",
 					"item": [
 						{
 							"name": "1) Get Student Section Attendance Events",
@@ -2659,6 +4152,73 @@
 									],
 									"path": [
 										"studentSpecialEducationProgramAssociations"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "StudentTitle1PartAProgramAssociations",
+					"item": [
+						{
+							"name": "1) Get StudentTitle1PartAProgramAssociations",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/StudentTitleIPartAProgramAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"StudentTitleIPartAProgramAssociations"
+									],
+									"query": [
+										{
+											"key": "studentUniqueId",
+											"value": "johnwick123",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post StudentTitle1PartAProgramAssociations",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"ProgramReference\": { \n        \"educationOrganizationId\": 255901, \n        \"programName\": \"Title I Part A\",\n        \"programTypeDescriptor\": \"uri://ed-fi.org/ProgramTypeDescriptor#Title I Part A\"\n        },\n    \"educationOrganizationReference\": { \"educationOrganizationId\": 255901107 },\n    \"studentReference\": { \"studentUniqueId\": \"johnwick123\" },\n    \"beginDate\": \"2021-08-23\", \n    \"titleIPartAParticipantDescriptor\": \"uri://ed-fi.org/TitleIPartAParticipantDescriptor#Public Targeted Assistance Program\"\n  }"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/StudentTitleIPartAProgramAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"StudentTitleIPartAProgramAssociations"
 									]
 								}
 							},
