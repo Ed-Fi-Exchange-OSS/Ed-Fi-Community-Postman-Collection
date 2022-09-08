@@ -1,6 +1,7 @@
-# {Insert Repository Name Here}
+# Ed-Fi-Community-Postman-Collection
 
-{Insert project information here}
+Ed-Fi Resource Postman Collection Scripts 
+    This is a working list of the Ed-Fi Resouces (aka EndPoints) and their Postman scripts.  These scripts will help you Get, Put, Post and Delete data using a JSON format against your Ed-Fi ODS.   These scripts are there to help you verify data in your ODS as well as help you determine how to build a JSON formated function call. 
 
 ## Legal Information
 
