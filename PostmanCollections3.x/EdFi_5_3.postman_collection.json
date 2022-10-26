@@ -1,645 +1,13 @@
 {
 	"info": {
-		"_postman_id": "5cc995c9-0ffc-4715-97fb-317937b8d7c7",
+		"_postman_id": "4ebb762c-8a21-4914-8d2a-bbafa4593243",
 		"name": "EdFi_5_3",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "22457052"
 	},
 	"item": [
 		{
-			"name": "V 2.x - Out of Date",
-			"item": [
-				{
-					"name": "Assessments",
-					"item": [
-						{
-							"name": "8) Post Assessment",
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"type": "text",
-										"value": "Bearer {{Token}}"
-									},
-									{
-										"key": "Content-Type",
-										"type": "text",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"identifier\": \"Dibels-8th\",\n  \"title\": \"Dibels 8th Edition\",  \n  \"revisionDate\": \"2019-10-18\",  \n  \"namespace\": \"http://dibels.uoregon.edu/Assessment/Dibels8th.xml\",\n  \"categoryDescriptor\": \"Reading readiness test\",\n  \"academicSubjects\": [ { \"academicSubjectDescriptor\": \"Reading\" }],\n  \"assessedGradeLevels\": [   \n    { \"gradeLevelDescriptor\": \"Kindergarten\" },\n\t{ \"gradeLevelDescriptor\": \"First grade\" },\n\t{ \"gradeLevelDescriptor\": \"Second grade\" },\n\t{ \"gradeLevelDescriptor\": \"Third grade\" },\n\t{ \"gradeLevelDescriptor\": \"Fourth grade\" },\n\t{ \"gradeLevelDescriptor\": \"Fifth grade\" },\n\t{ \"gradeLevelDescriptor\": \"Sixth grade\" }\n  ],\n  \"scores\": [\n    {\n      \"assessmentReportingMethodType\": \"Scale score\",\n      \"resultDatatypeType\": \"Integer\",\n      \"maximumScore\": \"478\",\n      \"minimumScore\": \"0\"\n    }\n  ],\n  \"performanceLevels\": [\n\t{\n\t  \"assessmentReportingMethodType\": \"Proficiency level\",\n\t  \"performanceLevelDescriptor\": \"http://dibels.uoregon.edu/Descriptor/PerformanceLevelDescriptor.xml/At Benchmark\",\n\t  \"resultDatatypeType\": \"Level\"    \n\t}\t\t\n  ]  \n}"
-								},
-								"url": {
-									"raw": "{{ApiUrl}}/Assessments",
-									"host": [
-										"{{ApiUrl}}"
-									],
-									"path": [
-										"Assessments"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Descriptors",
-					"item": [
-						{
-							"name": "1) Post Performance Level Descriptor",
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"type": "text",
-										"value": "Bearer {{Token}}"
-									},
-									{
-										"key": "Content-Type",
-										"type": "text",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n  \"codeValue\": \"At Benchmark\",\n  \"description\": \"At Benchmark\",\n  \"namespace\": \"http://dibels.uoregon.edu/Descriptor/PerformanceLevelDescriptor.xml\",\n  \"shortDescription\": \"At Benchmark\" \n}"
-								},
-								"url": {
-									"raw": "{{ApiUrl}}/performanceLevelDescriptors",
-									"host": [
-										"{{ApiUrl}}"
-									],
-									"path": [
-										"performanceLevelDescriptors"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "2) Get Performance Level Descriptors",
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"type": "text",
-										"value": "Bearer {{Token}}"
-									}
-								],
-								"url": {
-									"raw": "{{ApiUrl}}/performanceLevelDescriptors",
-									"host": [
-										"{{ApiUrl}}"
-									],
-									"path": [
-										"performanceLevelDescriptors"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "3) Post Staff Classification Descriptors",
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"type": "text",
-										"value": "Bearer {{Token}}"
-									},
-									{
-										"key": "Content-Type",
-										"type": "text",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"codeValue\": \"DDDMyTestAP\",\r\n    \"description\": \"DDDMy Test Assistant Principal\",\r\n    \"namespace\": \"http://ed-fi.org/Descriptor/StaffClassificationDescriptor.xml\",\r\n    \"shortDescription\": \"DDDMyTestAP\",\r\n    \"staffClassificationType\": \"Assistant Principal\"\r\n}"
-								},
-								"url": {
-									"raw": "{{ApiUrl}}/staffClassificationDescriptors",
-									"host": [
-										"{{ApiUrl}}"
-									],
-									"path": [
-										"staffClassificationDescriptors"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "4) Get Staff Classification Descriptors",
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"type": "text",
-										"value": "Bearer {{Token}}"
-									}
-								],
-								"url": {
-									"raw": "{{ApiUrl}}/staffClassificationDescriptors",
-									"host": [
-										"{{ApiUrl}}"
-									],
-									"path": [
-										"staffClassificationDescriptors"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Local Education Agencies",
-					"item": [
-						{
-							"name": "3) Get Local Education Agencies",
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{Token}}",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{ApiUrl}}/localEducationAgencies",
-									"host": [
-										"{{ApiUrl}}"
-									],
-									"path": [
-										"localEducationAgencies"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "3) Put local Education Agencies Copy",
-							"request": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{Token}}",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"id\": \"ebf9f38b97e24127b9575e8b2fdb50ad\",\r\n    \"educationServiceCenterReference\": {\r\n      \"educationServiceCenterId\": 255950,\r\n      \"link\": {\r\n        \"rel\": \"EducationServiceCenter\",\r\n        \"href\": \"/educationServiceCenters?educationServiceCenterId=255950\"\r\n      }\r\n    },\r\n    \"localEducationAgencyId\": 255901,\r\n    \"nameOfInstitution\": \"Dougs ISD\",\r\n    \"shortNameOfInstitution\": \"GBISD\",\r\n    \"stateOrganizationId\": \"255901\",\r\n    \"webSite\": \"http://www.GBISD.edu/\",\r\n    \"categoryType\": \"Independent\",\r\n    \"addresses\": [\r\n      {\r\n        \"addressType\": \"Mailing\",\r\n        \"city\": \"Grand Bend\",\r\n        \"nameOfCounty\": \"Williston\",\r\n        \"postalCode\": \"73334-9376\",\r\n        \"stateAbbreviationType\": \"TX\",\r\n        \"streetNumberName\": \"P.O. Box 9376\"\r\n      },\r\n      {\r\n        \"addressType\": \"Physical\",\r\n        \"city\": \"Grand Bend\",\r\n        \"nameOfCounty\": \"Williston\",\r\n        \"postalCode\": \"73334\",\r\n        \"stateAbbreviationType\": \"TX\",\r\n        \"streetNumberName\": \"123 Main Street\"\r\n      }\r\n    ],\r\n    \"educationOrganizationCategories\": [\r\n      {\r\n        \"type\": \"Local Education Agency\"\r\n      }\r\n    ],\r\n    \"identificationCodes\": [\r\n      {\r\n        \"educationOrganizationIdentificationSystemDescriptor\": \"SEA\",\r\n        \"identificationCode\": \"255901\"\r\n      }\r\n    ],\r\n    \"institutionTelephones\": [\r\n      {\r\n        \"institutionTelephoneNumberType\": \"Main\",\r\n        \"telephoneNumber\": \"(950) 367-2013\"\r\n      },\r\n      {\r\n        \"institutionTelephoneNumberType\": \"Fax\",\r\n        \"telephoneNumber\": \"(950) 366-2320\"\r\n      }\r\n    ],\r\n    \"internationalAddresses\": [],\r\n    \"accountabilities\": [],\r\n    \"_etag\": \"636712544963930000\"\r\n  }"
-								},
-								"url": {
-									"raw": "{{ApiUrl}}/localEducationAgencies",
-									"host": [
-										"{{ApiUrl}}"
-									],
-									"path": [
-										"localEducationAgencies"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Locations",
-					"item": [
-						{
-							"name": "5) Post Location",
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{Token}}",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n\t\"schoolReference\": { \"schoolId\": 255901107 },\n    \"classroomIdentificationCode\":\"137-CAF\"\n}"
-								},
-								"url": {
-									"raw": "{{ApiUrl}}/Locations",
-									"host": [
-										"{{ApiUrl}}"
-									],
-									"path": [
-										"Locations"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "School",
-					"item": [
-						{
-							"name": "3) Get Schools",
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"type": "text",
-										"value": "Bearer {{Token}}"
-									}
-								],
-								"url": {
-									"raw": "{{ApiUrl}}/Schools",
-									"host": [
-										"{{ApiUrl}}"
-									],
-									"path": [
-										"Schools"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "3) Put Schools",
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Authorization",
-										"type": "text",
-										"value": "Bearer {{Token}}"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"id\": \"71be101738974b55a252833439f5ba95\",\r\n    \"localEducationAgencyReference\": {\r\n      \"localEducationAgencyId\": 255901,\r\n      \"link\": {\r\n        \"rel\": \"LocalEducationAgency\",\r\n        \"href\": \"/localEducationAgencies?localEducationAgencyId=255901\"\r\n      }\r\n    },\r\n    \"schoolId\": 255901001,\r\n    \"nameOfInstitution\": \"Dougs High School\",\r\n    \"operationalStatusType\": \"Active\",\r\n    \"shortNameOfInstitution\": \"GBHS\",\r\n    \"stateOrganizationId\": \"255901001\",\r\n    \"webSite\": \"http://www.GBISD.edu/GBHS/\",\r\n    \"administrativeFundingControlDescriptor\": \"Public School\",\r\n    \"charterStatusType\": \"Not a Charter School\",\r\n    \"type\": \"Regular\",\r\n    \"titleIPartASchoolDesignationType\": \"Not designated as a Title I Part A school\",\r\n    \"addresses\": [\r\n      {\r\n        \"addressType\": \"Mailing\",\r\n        \"city\": \"Grand Bend\",\r\n        \"nameOfCounty\": \"Williston\",\r\n        \"postalCode\": \"73334-2035\",\r\n        \"stateAbbreviationType\": \"TX\",\r\n        \"streetNumberName\": \"P.O. Box 2035\"\r\n      },\r\n      {\r\n        \"addressType\": \"Physical\",\r\n        \"city\": \"Grand Bend\",\r\n        \"nameOfCounty\": \"Williston\",\r\n        \"postalCode\": \"73334\",\r\n        \"stateAbbreviationType\": \"TX\",\r\n        \"streetNumberName\": \"456 Elm Street\"\r\n      }\r\n    ],\r\n    \"educationOrganizationCategories\": [\r\n      {\r\n        \"type\": \"School\"\r\n      }\r\n    ],\r\n    \"identificationCodes\": [\r\n      {\r\n        \"educationOrganizationIdentificationSystemDescriptor\": \"SEA\",\r\n        \"identificationCode\": \"255901001\"\r\n      }\r\n    ],\r\n    \"institutionTelephones\": [\r\n      {\r\n        \"institutionTelephoneNumberType\": \"Main\",\r\n        \"telephoneNumber\": \"(950) 325-9465\"\r\n      },\r\n      {\r\n        \"institutionTelephoneNumberType\": \"Fax\",\r\n        \"telephoneNumber\": \"(950) 393-3156\"\r\n      }\r\n    ],\r\n    \"internationalAddresses\": [],\r\n    \"schoolCategories\": [\r\n      {\r\n        \"type\": \"High School\"\r\n      }\r\n    ],\r\n    \"gradeLevels\": [\r\n      {\r\n        \"gradeLevelDescriptor\": \"Eleventh grade\"\r\n      },\r\n      {\r\n        \"gradeLevelDescriptor\": \"Ninth grade\"\r\n      },\r\n      {\r\n        \"gradeLevelDescriptor\": \"Tenth grade\"\r\n      },\r\n      {\r\n        \"gradeLevelDescriptor\": \"Twelfth grade\"\r\n      }\r\n    ]\r\n  }"
-								},
-								"url": {
-									"raw": "{{ApiUrl}}/Schools",
-									"host": [
-										"{{ApiUrl}}"
-									],
-									"path": [
-										"Schools"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "6) Post School",
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"type": "text",
-										"value": "Bearer {{Token}}"
-									},
-									{
-										"key": "Content-Type",
-										"type": "text",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n\t\"localEducationAgencyReference\": { \"localEducationAgencyId\": 255950 },\r\n\t\"schoolId\": 1234567,\r\n\t\"nameOfInstitution\": \"Dougs High2\",\r\n\t\"operationalStatusType\": \"Active\",\r\n\t\"shortNameOfInstitution\": \"DH\",\r\n\t\"stateOrganizationId\": \"1234567\",\r\n\t\"webSite\": \"http://www.doughs.org\",\r\n\t\"administrativeFundingControlDescriptor\": \"Public School\",\r\n\t\"charterStatusType\": \"Not a Charter School\",\r\n\t\"type\": \"Regular\",\r\n\t\"titleIPartASchoolDesignationType\": \"Not designated as a Title I Part A school\",\r\n\t\"addresses\": [\r\n\t\t{\r\n\t\t\t\"addressType\": \"Mailing\",\r\n\t\t\t\"city\": \"Doug City\",\r\n\t\t\t\"nameOfCounty\": \"Williston\",\r\n\t\t\t\"postalCode\": \"73334-2035\",\r\n\t\t\t\"stateAbbreviationType\": \"TX\",\r\n\t\t\t\"streetNumberName\": \"P.O. Box 123\"\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"addressType\": \"Physical\",\r\n\t\t\t\"city\": \"Grand Bend\",\r\n\t\t\t\"nameOfCounty\": \"Williston\",\r\n\t\t\t\"postalCode\": \"73334\",\r\n\t\t\t\"stateAbbreviationType\": \"TX\",\r\n\t\t\t\"streetNumberName\": \"123 Maple Street\"\r\n\t\t}\r\n\t],\r\n\t\"educationOrganizationCategories\": [ { \"type\": \"School\" } ],\r\n\t\"identificationCodes\": [\r\n\t\t{\r\n\t\t\t\"educationOrganizationIdentificationSystemDescriptor\": \"SEA\",\r\n\t\t\t\"identificationCode\": \"{{schoolId}}\"\r\n\t\t}\r\n\t],\r\n\t\"institutionTelephones\": [\r\n\t\t{\r\n\t\t\t\"institutionTelephoneNumberType\": \"Main\",\r\n\t\t\t\"telephoneNumber\": \"(950) 325-1231\"\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"institutionTelephoneNumberType\": \"Fax\",\r\n\t\t\t\"telephoneNumber\": \"(950) 393-1232\"\r\n\t\t}\r\n\t],\r\n\t\"schoolCategories\": [ { \"type\": \"High School\" } ],\r\n\t\"gradeLevels\": [ { \"gradeLevelDescriptor\": \"Eleventh grade\" } ]\r\n}"
-								},
-								"url": {
-									"raw": "{{ApiUrl}}/Schools",
-									"host": [
-										"{{ApiUrl}}"
-									],
-									"path": [
-										"Schools"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Student",
-					"item": [
-						{
-							"name": "4) Get Students",
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{Token}}",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{ApiUrl}}/Students",
-									"host": [
-										"{{ApiUrl}}"
-									],
-									"path": [
-										"Students"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "2) Post Student",
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"type": "text",
-										"value": "Bearer {{Token}}"
-									},
-									{
-										"key": "Content-Type",
-										"type": "text",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"studentUniqueId\": \"jonwick123\",\n    \"birthDate\": \"1980-04-02\",\n    \"firstName\": \"Jon\",\n    \"lastSurname\": \"Wick\",\n    \"sexType\": \"Male\"\n}"
-								},
-								"url": {
-									"raw": "{{ApiUrl}}/Students",
-									"host": [
-										"{{ApiUrl}}"
-									],
-									"path": [
-										"Students"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Student Education Organization",
-					"item": [
-						{
-							"name": "2) Post Student Education Organization Association",
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"type": "text",
-										"value": "Bearer {{Token}}"
-									},
-									{
-										"key": "Content-Type",
-										"type": "text",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"educationOrganizationReference\": { \"educationOrganizationId\": 11 },\n    \"studentReference\": { \"studentUniqueId\": \"jonwick123\" }\n  }"
-								},
-								"url": {
-									"raw": "{{ApiUrl}}/studentEducationOrganizationAssociations",
-									"host": [
-										"{{ApiUrl}}"
-									],
-									"path": [
-										"studentEducationOrganizationAssociations"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Staff Education Organization Assignment",
-					"item": [
-						{
-							"name": "7) Post staffEducationOrganizationAssignmentAssociations",
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{Token}}",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{ \r\n  \"educationOrganizationReference\": {\r\n    \"educationOrganizationId\": \"101717\"\r\n  },\r\n  \"staffReference\": {\r\n    \"staffUniqueId\": \"000829\"\r\n  },\r\n  \"employmentStaffEducationOrganizationEmploymentAssociationReference\": {\r\n    \"educationOrganizationId\": \"350000\",\r\n    \"staffUniqueId\": \"000829\",\r\n    \"hireDate\": \"1963-03-13\",\r\n    \"employmentStatusDescriptor\": \"Substitute/temporary\"\r\n  },\r\n  \"positionTitle\": \"S85008-BPS Bi-Weekly Leave\",\r\n  \"beginDate\": \"2004-10-26\",\r\n  \"endDate\": \"2006-11-16\",\r\n  \"staffClassificationDescriptor\": \"Other\",\r\n  \"orderOfAssignment\": \"1\"\r\n}"
-								},
-								"url": {
-									"raw": "{{ApiUrl}}/staffEducationOrganizationAssignmentAssociations",
-									"host": [
-										"{{ApiUrl}}"
-									],
-									"path": [
-										"staffEducationOrganizationAssignmentAssociations"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "1) GetOAuthCode",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"var responseData = JSON.parse(responseBody);",
-									"postman.setEnvironmentVariable(\"OAuthCode\", responseData.code);"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{ApiRoot}}/oauth/authorize?Client_id={{Key}}&Response_type=code",
-							"host": [
-								"{{ApiRoot}}"
-							],
-							"path": [
-								"oauth",
-								"authorize"
-							],
-							"query": [
-								{
-									"key": "Client_id",
-									"value": "{{Key}}"
-								},
-								{
-									"key": "Response_type",
-									"value": "code"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "2) GetOAuthToken",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"var responseData = JSON.parse(responseBody);",
-									"postman.setEnvironmentVariable(\"Token\", responseData.access_token);",
-									"function b(a){return a?(a^Math.random()*16>>a/4).toString(16):([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g,b)};",
-									"postman.setEnvironmentVariable(\"ClientUID\", b());",
-									"postman.setEnvironmentVariable(\"studentUniqueId\", ((Math.random()).toString(16)).slice(-8));",
-									"postman.setEnvironmentVariable(\"schoolId\", \"255901\" + ((Math.random()).toString()).slice(-3));"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/x-www-form-urlencoded"
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "Client_id",
-									"value": "{{Key}}",
-									"type": "text"
-								},
-								{
-									"key": "Client_secret",
-									"value": "{{Secret}}",
-									"type": "text"
-								},
-								{
-									"key": "Code",
-									"value": "{{OAuthCode}}",
-									"type": "text"
-								},
-								{
-									"key": "Grant_type",
-									"value": "authorization_code",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{ApiRoot}}/oauth/token",
-							"host": [
-								"{{ApiRoot}}"
-							],
-							"path": [
-								"oauth",
-								"token"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "V 3.x",
+			"name": "v 5.3",
 			"item": [
 				{
 					"name": "Assessments",
@@ -723,6 +91,72 @@
 									],
 									"path": [
 										"Assessments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Put Assessment",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"assessmentIdentifier\": \"Testing-Assessment01-Identifier\",\n  \"assessmentTitle\": \"Testing Assessment 01 - TestingTitle\",  \n  \"namespace\": \"uri://ed-fi.org/Assessment/Assessment.xml\",\n  \"categoryDescriptor\": \"Reading readiness test\",\n  \"academicSubjects\": [ { \"academicSubjectDescriptor\": \"uri://ed-fi.org/AcademicSubjectDescriptor#Reading\" } ],\n  \"assessedGradeLevels\": [ { \"gradeLevelDescriptor\": \"uri://ed-fi.org/GradeLevelDescriptor#Sixth grade\" } ]\n}\n"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Assessments/{Id}",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Assessments",
+										"{Id}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Delete Assessment",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Assessments/{id}",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Assessments",
+										"{id}"
 									]
 								}
 							},
