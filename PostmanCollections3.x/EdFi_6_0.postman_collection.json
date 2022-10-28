@@ -1,0 +1,886 @@
+{
+	"info": {
+		"_postman_id": "31a9f308-6bd9-47a0-bd91-6c2e2ea07de6",
+		"name": "EdFi_6_0",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16170462"
+	},
+	"item": [
+		{
+			"name": "v 6.0",
+			"item": [
+				{
+					"name": "BellSchedules",
+					"item": [
+						{
+							"name": "1) GET Bell Schedules",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Bellschedules",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Bellschedules"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1) GET Bell Schedules by SchooldId & BellSchedlueName",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Bellschedules?schoolId=255901001&bellScheduleName=Testing-Elementary Bell 20xx-20yy C",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Bellschedules"
+									],
+									"query": [
+										{
+											"key": "schoolId",
+											"value": "255901001"
+										},
+										{
+											"key": "bellScheduleName",
+											"value": "Testing-Elementary Bell 20xx-20yy C"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post Bell Schedules",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"bellScheduleName\": \"Testing-Elementary Bell 20xx-20yy C\",\r\n    \"classPeriods\": [\r\n        {\r\n            \"classPeriodReference\": {\r\n                \"schoolId\": \"255901001\",\r\n                \"classPeriodName\": \"01 - Traditional\"\r\n            }\r\n        },\r\n        {\r\n            \"classPeriodReference\": {\r\n                \"schoolId\": \"255901001\",\r\n                \"classPeriodName\": \"02 - Traditional\"\r\n            }\r\n        }\r\n    ],\r\n    \"schoolReference\": {\r\n        \"schoolId\": 255901001\r\n    },\r\n    \"alternateDayName\": \"Traditional-C\"\r\n}"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Bellschedules",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Bellschedules"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3) Put Bell Schedules",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"bellScheduleName\": \"Testing-Elementary Bell 20xx-20yy\",\r\n    \"classPeriods\": [\r\n        {\r\n            \"classPeriodReference\": {\r\n                \"schoolId\": \"255901001\",\r\n                \"classPeriodName\": \"01 - Traditional\"\r\n            }\r\n        }\r\n    ],\r\n    \"schoolReference\": {\r\n        \"schoolId\": 255901001\r\n    },\r\n    \"alternateDayName\": \"Testing - Traditional-C\"\r\n}"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Bellschedules/97384b0a3b2e40ce81f9d48d3fc19dc2",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Bellschedules",
+										"97384b0a3b2e40ce81f9d48d3fc19dc2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "4) Delete Bell Schedules",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Bellschedules/97384b0a3b2e40ce81f9d48d3fc19dc2",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Bellschedules",
+										"97384b0a3b2e40ce81f9d48d3fc19dc2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Calendars",
+					"item": [
+						{
+							"name": "1) Get Calendars",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Calendars",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Calendars"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1) Get Calendars by Schoolid",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Calendars?schoolid=255901001",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Calendars"
+									],
+									"query": [
+										{
+											"key": "schoolid",
+											"value": "255901001"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1) Get Calendars by Id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Calendars/b4dd27f0d8f344fe81664818426c839d",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Calendars",
+										"b4dd27f0d8f344fe81664818426c839d"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post Calendars",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"calendarCode\": \"2010605675\",\r\n        \"schoolReference\": {\r\n            \"schoolId\": 255901001\r\n        },\r\n        \"schoolYearTypeReference\": {\r\n            \"schoolYear\": 2022\r\n        },\r\n        \"calendarTypeDescriptor\": \"uri://ed-fi.org/CalendarTypeDescriptor#Student Specific\"\r\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Calendars",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Calendars"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3) Put Calendars",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"calendarCode\": \"2010605675\",\r\n        \"schoolReference\": {\r\n            \"schoolId\": 255901001\r\n        },\r\n        \"schoolYearTypeReference\": {\r\n            \"schoolYear\": 2022\r\n        },\r\n        \"calendarTypeDescriptor\": \"uri://ed-fi.org/CalendarTypeDescriptor#School\"\r\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Calendars/b4dd27f0d8f344fe81664818426c839d",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Calendars",
+										"b4dd27f0d8f344fe81664818426c839d"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "4) Delete Calendars",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Calendars/42199d2c91c44d028d49342900515532",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Calendars",
+										"42199d2c91c44d028d49342900515532"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "CalendarDates",
+					"item": [
+						{
+							"name": "1) Get Calendar Dates",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/CalendarDates",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"CalendarDates"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1) Get Calendar Dates by SchoolId",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/CalendarDates?SchoolId=255901001",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"CalendarDates"
+									],
+									"query": [
+										{
+											"key": "SchoolId",
+											"value": "255901001"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1) Get Calendar Dates by Id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/CalendarDates/b0548623a53e4d57aa53c3b16fe07271",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"CalendarDates",
+										"b0548623a53e4d57aa53c3b16fe07271"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post Calendar Dates",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "    {\r\n        \"calendarReference\": {\r\n            \"calendarCode\": \"2010605675\",\r\n            \"schoolId\": 255901001,\r\n            \"schoolYear\": 2023\r\n        },\r\n        \"date\": \"2023-08-24\",\r\n        \"calendarEvents\": [\r\n            {\r\n                \"calendarEventDescriptor\": \"uri://ed-fi.org/CalendarEventDescriptor#Instructional day\"\r\n            }\r\n        ]\r\n    }\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/CalendarDates",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"CalendarDates"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3) Pup Calendar Dates",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "    {\r\n        \"calendarReference\": {\r\n            \"calendarCode\": \"2010605675\",\r\n            \"schoolId\": 255901001,\r\n            \"schoolYear\": 2022\r\n        },\r\n         \"date\": \"2022-08-24\",       \r\n        \"calendarEvents\": [\r\n            {\r\n                \"calendarEventDescriptor\": \"uri://ed-fi.org/CalendarEventDescriptor#Teacher only day\"\r\n            }\r\n        ]\r\n    }\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/CalendarDates/b0548623a53e4d57aa53c3b16fe07271",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"CalendarDates",
+										"b0548623a53e4d57aa53c3b16fe07271"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Delete Calendar Dates",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/CalendarDates/b0548623a53e4d57aa53c3b16fe07271",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"CalendarDates",
+										"b0548623a53e4d57aa53c3b16fe07271"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "ClassPeriods",
+					"item": [
+						{
+							"name": "1) Get ClassPeriod",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/ClassPeriods",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"ClassPeriods"
+									],
+									"query": [
+										{
+											"key": "schoolid",
+											"value": "255901001",
+											"disabled": true
+										},
+										{
+											"key": "classperiodname",
+											"value": "99 - Traditional",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1) Get ClassPeriod by Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/ClassPeriods/1d47a5d602d44d5fa65e32c6e2189563",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"ClassPeriods",
+										"1d47a5d602d44d5fa65e32c6e2189563"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post ClassPeriod",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"schoolReference\": {\r\n        \"schoolId\": 255901001\r\n    },\r\n    \"classPeriodName\": \"99 - Traditional\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/ClassPeriods",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"ClassPeriods"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3) Put ClassPeriod",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"schoolReference\": {\r\n        \"schoolId\": 255901001\r\n    },\r\n    \"classPeriodName\": \"99 - Traditional **\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/ClassPeriods/1d47a5d602d44d5fa65e32c6e2189563",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"ClassPeriods",
+										"1d47a5d602d44d5fa65e32c6e2189563"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3) Delete ClassPeriod",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"schoolReference\": {\r\n        \"schoolId\": 255901001\r\n    },\r\n    \"classPeriodName\": \"99 - Traditional **\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/ClassPeriods/1d47a5d602d44d5fa65e32c6e2189563",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"ClassPeriods",
+										"1d47a5d602d44d5fa65e32c6e2189563"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Cohorts",
+					"item": [
+						{
+							"name": "1) Get Cohorts",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Cohorts",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Cohorts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1) Get Cohorts by educationOrganizationId",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Cohorts?educationOrganizationId=255901001",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Cohorts"
+									],
+									"query": [
+										{
+											"key": "educationOrganizationId",
+											"value": "255901001"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post Cohorts",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "    {\r\n        \"cohortIdentifier\": \"Glee Club\",\r\n        \"educationOrganizationReference\": {\r\n            \"educationOrganizationId\": 255901001\r\n        },\r\n        \"cohortTypeDescriptor\": \"uri://ed-fi.org/cohortTypeDescriptor#Extracurricular Activity\"\r\n    }\r\n"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Cohorts",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Cohorts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3) Put Cohorts",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "    {\r\n        \"cohortIdentifier\": \"Glee Club\",\r\n        \"educationOrganizationReference\": {\r\n            \"educationOrganizationId\": 255901001\r\n        },\r\n        \"cohortTypeDescriptor\": \"uri://ed-fi.org/cohortTypeDescriptor#Attendance Intervention\"\r\n    }\r\n"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Cohorts/5a72cfe916d541ea8f724bd86a2905b6",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Cohorts",
+										"5a72cfe916d541ea8f724bd86a2905b6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3) Delete Cohorts",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "    {\r\n        \"cohortIdentifier\": \"Glee Club\",\r\n        \"educationOrganizationReference\": {\r\n            \"educationOrganizationId\": 255901001\r\n        },\r\n        \"cohortTypeDescriptor\": \"uri://ed-fi.org/cohortTypeDescriptor#Attendance Intervention\"\r\n    }\r\n"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Cohorts/5a72cfe916d541ea8f724bd86a2905b6",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Cohorts",
+										"5a72cfe916d541ea8f724bd86a2905b6"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "1) GetOAuthToken",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"Token\", responseData.access_token);",
+									"function b(a){return a?(a^Math.random()*16>>a/4).toString(16):([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g,b)}",
+									"postman.setEnvironmentVariable(\"ClientUID\", b());",
+									"postman.setEnvironmentVariable(\"studentUniqueId\", ((Math.random()).toString(16)).slice(-8));",
+									"postman.setEnvironmentVariable(\"schoolId\", \"255901\" + ((Math.random()).toString()).slice(-3));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "Client_id",
+									"value": "{{Key}}",
+									"type": "text"
+								},
+								{
+									"key": "Client_secret",
+									"value": "{{Secret}}",
+									"type": "text"
+								},
+								{
+									"key": "Grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{ApiRoot}}/oauth/token",
+							"host": [
+								"{{ApiRoot}}"
+							],
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "clientSecret",
+				"value": "{{ClientSecret}}",
+				"type": "string"
+			},
+			{
+				"key": "clientId",
+				"value": "{{ClientId}}",
+				"type": "string"
+			},
+			{
+				"key": "tokenName",
+				"value": "ODS Token",
+				"type": "string"
+			},
+			{
+				"key": "accessTokenUrl",
+				"value": "{{oauthTokenUrl}}",
+				"type": "string"
+			},
+			{
+				"key": "tokenType",
+				"value": "",
+				"type": "string"
+			},
+			{
+				"key": "accessToken",
+				"value": "",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "client_credentials",
+				"type": "string"
+			},
+			{
+				"key": "useBrowser",
+				"value": false,
+				"type": "boolean"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "ApiUrl",
+			"value": "https://api.ed-fi.org/v6.0/api/data/v3/",
+			"type": "string"
+		},
+		{
+			"key": "ClientId",
+			"value": "yourClientId",
+			"type": "string"
+		},
+		{
+			"key": "ClientSecret",
+			"value": "yourSecret",
+			"type": "string"
+		},
+		{
+			"key": "oauthTokenUrl",
+			"value": "https://api.ed-fi.org/v6.0/api/oauth/token",
+			"type": "string"
+		}
+	]
+}
