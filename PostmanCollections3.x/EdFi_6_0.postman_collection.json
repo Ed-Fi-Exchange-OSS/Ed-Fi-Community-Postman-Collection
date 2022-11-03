@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "060b266b-2316-462f-ab8b-34ebae60cb8c",
+		"_postman_id": "e0573835-036d-4ac3-85df-67bbc2396ad4",
 		"name": "EdFi_6_0",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "16170462"
@@ -10,7 +10,186 @@
 			"name": "v 6.0",
 			"item": [
 				{
-					"name": "a) BellSchedules",
+					"name": "1) Assessments",
+					"item": [
+						{
+							"name": "1) Get Assessments",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Assessments",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Assessments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1) Get Assessments by AssessmentIdentifier  by Id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Assessments/34b4023bfa254dcba1906d0340973bda",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Assessments",
+										"34b4023bfa254dcba1906d0340973bda"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1) Get Assessments by AssessmentIdentifier",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Assessments?assessmentIdentifier=Testing-Assessment01-Identifier",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Assessments"
+									],
+									"query": [
+										{
+											"key": "assessmentIdentifier",
+											"value": "Testing-Assessment01-Identifier"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post Assessment",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"assessmentIdentifier\": \"Testing-Assessment01-Identifier\",\n  \"assessmentTitle\": \"Testing Assessment 01\",  \n  \"namespace\": \"uri://ed-fi.org/Assessment/Assessment.xml\",\n  \"categoryDescriptor\": \"Reading readiness test\",\n  \"academicSubjects\": [ { \"academicSubjectDescriptor\": \"uri://ed-fi.org/AcademicSubjectDescriptor#Reading\" } ],\n  \"assessedGradeLevels\": [ { \"gradeLevelDescriptor\": \"uri://ed-fi.org/GradeLevelDescriptor#Sixth grade\" } ]\n}\n"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Assessments",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Assessments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Put Assessment",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"assessmentIdentifier\": \"Testing-Assessment01-Identifier\",\n  \"assessmentTitle\": \"Testing Assessment 01 - TestingTitle\",  \n  \"namespace\": \"uri://ed-fi.org/Assessment/Assessment.xml\",\n  \"categoryDescriptor\": \"Reading readiness test\",\n  \"academicSubjects\": [ { \"academicSubjectDescriptor\": \"uri://ed-fi.org/AcademicSubjectDescriptor#Reading\" } ],\n  \"assessedGradeLevels\": [ { \"gradeLevelDescriptor\": \"uri://ed-fi.org/GradeLevelDescriptor#Sixth grade\" } ]\n}\n"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Assessments/34b4023bfa254dcba1906d0340973bda",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Assessments",
+										"34b4023bfa254dcba1906d0340973bda"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Delete Assessment",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/Assessments/{id}",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"Assessments",
+										"{id}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "2) BellSchedules",
 					"item": [
 						{
 							"name": "1) GET Bell Schedules",
@@ -142,7 +321,7 @@
 					]
 				},
 				{
-					"name": "b) Calendars",
+					"name": "3) Calendars",
 					"item": [
 						{
 							"name": "1) Get Calendars",
@@ -294,7 +473,7 @@
 					]
 				},
 				{
-					"name": "c) CalendarDates",
+					"name": "4) CalendarDates",
 					"item": [
 						{
 							"name": "1) Get Calendar Dates",
@@ -446,7 +625,7 @@
 					]
 				},
 				{
-					"name": "d) ClassPeriods",
+					"name": "5) ClassPeriods",
 					"item": [
 						{
 							"name": "1) Get ClassPeriod",
@@ -584,7 +763,7 @@
 					]
 				},
 				{
-					"name": "e) Cohorts",
+					"name": "6) Cohorts",
 					"item": [
 						{
 							"name": "1) Get Cohorts",
@@ -727,7 +906,7 @@
 					]
 				},
 				{
-					"name": "f) Courses",
+					"name": "7) Courses",
 					"item": [
 						{
 							"name": "1) Get Courses",
@@ -897,7 +1076,7 @@
 					]
 				},
 				{
-					"name": "g) Sessions",
+					"name": "8) Sessions",
 					"item": [
 						{
 							"name": "1) Get Session",
@@ -1056,7 +1235,7 @@
 					]
 				},
 				{
-					"name": "h) Sections",
+					"name": "9) Sections",
 					"item": [
 						{
 							"name": "1) GET Section",
@@ -1271,7 +1450,7 @@
 					]
 				},
 				{
-					"name": "i) CourseOfferings",
+					"name": "10) CourseOfferings",
 					"item": [
 						{
 							"name": "1) Get CourseOffering",
@@ -1448,7 +1627,7 @@
 					]
 				},
 				{
-					"name": "j) Students",
+					"name": "11) Students",
 					"item": [
 						{
 							"name": "1) Get Student",
@@ -1660,7 +1839,7 @@
 					]
 				},
 				{
-					"name": "k) StudentSchoolAssociations",
+					"name": "12) StudentSchoolAssociations",
 					"item": [
 						{
 							"name": "3) Get StudentSchoolAssociations",
@@ -1833,7 +2012,7 @@
 					]
 				},
 				{
-					"name": "l) StudentAcademicRecords",
+					"name": "13) StudentAcademicRecords",
 					"item": [
 						{
 							"name": "1) Get Student Academic Records",
@@ -2010,7 +2189,7 @@
 					]
 				},
 				{
-					"name": "m) CourseTranscripts",
+					"name": "14) CourseTranscripts",
 					"item": [
 						{
 							"name": "1) Get Course Transcripts",
@@ -2160,7 +2339,7 @@
 					]
 				},
 				{
-					"name": "n) Staffs",
+					"name": "15) Staffs",
 					"item": [
 						{
 							"name": "1) Get Staff",
@@ -2376,7 +2555,7 @@
 					]
 				},
 				{
-					"name": "o) StaffEducationOrganizationAssignments",
+					"name": "16) StaffEducationOrganizationAssignments",
 					"item": [
 						{
 							"name": "1) Get StaffEducationOrganizationAssignmentAssociation",
@@ -2560,7 +2739,7 @@
 					]
 				},
 				{
-					"name": "p) StaffSchoolAssociations",
+					"name": "17) StaffSchoolAssociations",
 					"item": [
 						{
 							"name": "1) Get Staff School Association",
@@ -2730,7 +2909,7 @@
 					]
 				},
 				{
-					"name": "q) StaffSectionAssociations",
+					"name": "18) StaffSectionAssociations",
 					"item": [
 						{
 							"name": "1) Get StaffSectionAssociations",
@@ -2946,7 +3125,7 @@
 					]
 				},
 				{
-					"name": "r) DisciplineIncidents",
+					"name": "19) DisciplineIncidents",
 					"item": [
 						{
 							"name": "1) Get DisciplineIncidents",
@@ -3162,7 +3341,7 @@
 					]
 				},
 				{
-					"name": "s) StudentDisciplineIncidentAssociations",
+					"name": "20) StudentDisciplineIncidentAssociations",
 					"item": [
 						{
 							"name": "1) Get StudentDisciplineIncidentAssociations",
@@ -3358,7 +3537,7 @@
 					]
 				},
 				{
-					"name": "t) DisciplineActions",
+					"name": "21) DisciplineActions",
 					"item": [
 						{
 							"name": "1) Get DiscripineActions",
@@ -3574,7 +3753,7 @@
 					]
 				},
 				{
-					"name": "u)StudentSectionAssociations",
+					"name": "22)StudentSectionAssociations",
 					"item": [
 						{
 							"name": "1) Get Student Section Association",
@@ -3720,7 +3899,7 @@
 					]
 				},
 				{
-					"name": "v )GradingPeriods",
+					"name": "23 )GradingPeriods",
 					"item": [
 						{
 							"name": "1) Get GradingPeriods",
@@ -3897,7 +4076,7 @@
 					]
 				},
 				{
-					"name": "w) Grades",
+					"name": "24) Grades",
 					"item": [
 						{
 							"name": "1) Get Grades",
@@ -4113,7 +4292,7 @@
 					]
 				},
 				{
-					"name": "x) GraduationPlans",
+					"name": "25) GraduationPlans",
 					"item": [
 						{
 							"name": "1) Get GraduationPlans",
@@ -4290,7 +4469,7 @@
 					]
 				},
 				{
-					"name": "y) Locations",
+					"name": "26) Locations",
 					"item": [
 						{
 							"name": "1) Get Locations with Limit",
@@ -4452,7 +4631,7 @@
 					]
 				},
 				{
-					"name": "1) StudentParentAssociations",
+					"name": "27) StudentParentAssociations",
 					"item": [
 						{
 							"name": "1) Get Student Parent Associations",
@@ -4631,7 +4810,7 @@
 					]
 				},
 				{
-					"name": "2) Parents",
+					"name": "28) Parents",
 					"item": [
 						{
 							"name": "1) Get Parents",
@@ -4815,7 +4994,7 @@
 					]
 				},
 				{
-					"name": "3) Programs",
+					"name": "29) Programs",
 					"item": [
 						{
 							"name": "1) Get Programs",
@@ -5180,7 +5359,7 @@
 					]
 				},
 				{
-					"name": "3) StudentProgramAssociations",
+					"name": "30) StudentProgramAssociations",
 					"item": [
 						{
 							"name": "1) Get StudentProgramAssociation",
@@ -5343,7 +5522,7 @@
 					]
 				},
 				{
-					"name": "4) StaffCohortAssociations",
+					"name": "31) StaffCohortAssociations",
 					"item": [
 						{
 							"name": "1) Get StaffCohortAssociations",
@@ -5520,7 +5699,7 @@
 					]
 				},
 				{
-					"name": "5) Schools",
+					"name": "32) Schools",
 					"item": [
 						{
 							"name": "1) Get Schools",
@@ -5666,7 +5845,7 @@
 					]
 				},
 				{
-					"name": "6) StudentCohortAssociations",
+					"name": "33) StudentCohortAssociations",
 					"item": [
 						{
 							"name": "1) Get StudentCohortAssociations",
@@ -5925,7 +6104,7 @@
 					]
 				},
 				{
-					"name": "7) StudentCTEProgramAssociations",
+					"name": "34) StudentCTEProgramAssociations",
 					"item": [
 						{
 							"name": "1) Get StudentCTEProgramAssociations",
@@ -6121,7 +6300,7 @@
 					]
 				},
 				{
-					"name": "8) StudentEducationOrganizations",
+					"name": "35) StudentEducationOrganizations",
 					"item": [
 						{
 							"name": "1) Get Student Education Organization Association",
@@ -6317,7 +6496,7 @@
 					]
 				},
 				{
-					"name": "9) StudentHomelessProgramAssociations",
+					"name": "36) StudentHomelessProgramAssociations",
 					"item": [
 						{
 							"name": "1) Get StudentHomelessProgramAssociations",
@@ -6513,7 +6692,7 @@
 					]
 				},
 				{
-					"name": "10) StudentLanguageInstructionProgramAssociations",
+					"name": "37) StudentLanguageInstructionProgramAssociations",
 					"item": [
 						{
 							"name": "1) Get StudentLanguageInstructionProgramAssociations",
@@ -6709,7 +6888,7 @@
 					]
 				},
 				{
-					"name": "11) StudentMigrantEducationProgramAssociations",
+					"name": "38) StudentMigrantEducationProgramAssociations",
 					"item": [
 						{
 							"name": "1) Get StudentMigrantEducationProgramAssociations",
@@ -6925,7 +7104,7 @@
 					]
 				},
 				{
-					"name": "12) StudentNeglectedOrDelinquentProgramAssociations",
+					"name": "39) StudentNeglectedOrDelinquentProgramAssociations",
 					"item": [
 						{
 							"name": "1) Get StudentNeglectedOrDelinquentProgramAssociations",
@@ -7120,7 +7299,7 @@
 					]
 				},
 				{
-					"name": "13) StudentSchoolAttendanceEvents",
+					"name": "40) StudentSchoolAttendanceEvents",
 					"item": [
 						{
 							"name": "1) Get StudentSchoolAttendanceEvents",
@@ -7316,7 +7495,7 @@
 					]
 				},
 				{
-					"name": "14) StudentSchoolFoodServiceProgramAssociations",
+					"name": "41) StudentSchoolFoodServiceProgramAssociations",
 					"item": [
 						{
 							"name": "1) Get StudentSchoolFoodServiceProgramAssociations",
@@ -7512,7 +7691,7 @@
 					]
 				},
 				{
-					"name": "16) StudentSectionAttendanceEvents",
+					"name": "42) StudentSectionAttendanceEvents",
 					"item": [
 						{
 							"name": "1) Get Student Section Attendance Events",
@@ -7728,7 +7907,7 @@
 					]
 				},
 				{
-					"name": "17) StudentSpecialEducationProgramAssociations",
+					"name": "43) StudentSpecialEducationProgramAssociations",
 					"item": [
 						{
 							"name": "1) Get StudentSpecialEducationProgramAssociations",
@@ -7924,7 +8103,7 @@
 					]
 				},
 				{
-					"name": "18) StudentTitle1PartAProgramAssociations",
+					"name": "44) StudentTitle1PartAProgramAssociations",
 					"item": [
 						{
 							"name": "1) Get StudentTitle1PartAProgramAssociations",
@@ -8120,6 +8299,463 @@
 					]
 				},
 				{
+					"name": "45) LocalEducationAgencies",
+					"item": [
+						{
+							"name": "2) Get Local Education Agencies",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/localEducationAgencies",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"localEducationAgencies"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Get Local Education Agencies by localEducationAgencyId",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/localEducationAgencies?localEducationAgencyId=987654321",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"localEducationAgencies"
+									],
+									"query": [
+										{
+											"key": "localEducationAgencyId",
+											"value": "987654321"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post Local Education Agencies",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"localEducationAgencyId\": 987654321,\n  \"categories\": [ \n      { \"educationOrganizationCategoryDescriptor\": \"uri://ed-fi.org/EducationOrganizationCategoryDescriptor#Local Education Agency\" } \n   ],\n  \"nameOfInstitution\": \"Testing Public School\",\n  \"shortNameOfInstitution\": \"Testing School\",\n  \"addresses\": [{\n        \"addressTypeDescriptor\": \"uri://ed-fi.org/AddressTypeDescriptor#Physical\",\n        \"stateAbbreviationDescriptor\": \"uri://ed-fi.org/StateAbbreviationDescriptor#NM\",\n        \"city\": \"Rio Rancho\",\n        \"postalCode\": \"87124\",\n        \"streetNumberName\": \"500\"\n    }],\n  \"charterStatusDescriptor\": \"uri://ed-fi.org/CharterStatusDescriptor#Not a Charter School\",\n  \"localEducationAgencyCategoryDescriptor\": \"uri://ed-fi.org/LocalEducationAgencyCategoryDescriptor#Independent\",\n  \"operationalStatusDescriptor\": \"uri://ed-fi.org/OperationalStatusDescriptor#Active\"\n}"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/localEducationAgencies",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"localEducationAgencies"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3) Post Local Education Agencies",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"localEducationAgencyId\": 987654321,\n  \"categories\": [ \n      { \"educationOrganizationCategoryDescriptor\": \"uri://ed-fi.org/EducationOrganizationCategoryDescriptor#Local Education Agency\" } \n   ],\n  \"nameOfInstitution\": \"Testing Public School\",\n  \"shortNameOfInstitution\": \"Testing School\",\n  \"addresses\": [{\n        \"addressTypeDescriptor\": \"uri://ed-fi.org/AddressTypeDescriptor#Physical\",\n        \"stateAbbreviationDescriptor\": \"uri://ed-fi.org/StateAbbreviationDescriptor#NM\",\n        \"city\": \"Rio Rancho\",\n        \"postalCode\": \"87124\",\n        \"streetNumberName\": \"50\"\n    }],\n  \"charterStatusDescriptor\": \"uri://ed-fi.org/CharterStatusDescriptor#Not a Charter School\",\n  \"localEducationAgencyCategoryDescriptor\": \"uri://ed-fi.org/LocalEducationAgencyCategoryDescriptor#Independent\",\n  \"operationalStatusDescriptor\": \"uri://ed-fi.org/OperationalStatusDescriptor#Active\"\n}"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/localEducationAgencies/14916eba142949f398919fdaa98869bf",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"localEducationAgencies",
+										"14916eba142949f398919fdaa98869bf"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "4) Delete Local Education Agencies",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/localEducationAgencies/14916eba142949f398919fdaa98869bf",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"localEducationAgencies",
+										"14916eba142949f398919fdaa98869bf"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "46) StaffEducationOrganizationEmployments",
+					"item": [
+						{
+							"name": "1) Get StaffEducationOrganizationEmploymentAssociations",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/staffEducationOrganizationEmploymentAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"staffEducationOrganizationEmploymentAssociations"
+									],
+									"query": [
+										{
+											"key": "staffUniqueId",
+											"value": "6013",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1) Get StaffEducationOrganizationEmploymentAssociations By UniqueId",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/staffEducationOrganizationEmploymentAssociations?staffUniqueId=0123",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"staffEducationOrganizationEmploymentAssociations"
+									],
+									"query": [
+										{
+											"key": "staffUniqueId",
+											"value": "6013",
+											"disabled": true
+										},
+										{
+											"key": "staffUniqueId",
+											"value": "0123"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post staffEducationOrganizationEmploymentAssociations",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"employmentStatusDescriptor\": \"uri://ed-fi.org/EmploymentStatusDescriptor#Other\",\r\n    \"hireDate\": \"2004-02-10\",\r\n    \"educationOrganizationReference\": { \"educationOrganizationId\": 255901001 },\r\n    \"staffReference\": { \"staffUniqueId\": \"0123\" }\r\n }"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/staffEducationOrganizationEmploymentAssociations",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"staffEducationOrganizationEmploymentAssociations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3) Post staffEducationOrganizationEmploymentAssociations",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"employmentStatusDescriptor\": \"uri://ed-fi.org/EmploymentStatusDescriptor#Substitute/temporary\",\r\n    \"hireDate\": \"2004-02-11\",\r\n    \"educationOrganizationReference\": { \"educationOrganizationId\": 255901001 },\r\n    \"staffReference\": { \"staffUniqueId\": \"0123\" }\r\n }"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/staffEducationOrganizationEmploymentAssociations/e845b53f1af245e9a806ae60bf273104",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"staffEducationOrganizationEmploymentAssociations",
+										"e845b53f1af245e9a806ae60bf273104"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "4) Delete StaffEducationOrganizationEmploymentAssociations",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{Token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/staffEducationOrganizationEmploymentAssociations/e845b53f1af245e9a806ae60bf273104",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"staffEducationOrganizationEmploymentAssociations",
+										"e845b53f1af245e9a806ae60bf273104"
+									],
+									"query": [
+										{
+											"key": "staffUniqueId",
+											"value": "6013",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "47) Descriptors",
+					"item": [
+						{
+							"name": "1) Get Employment Status Descriptors",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/employmentStatusDescriptors",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"employmentStatusDescriptors"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1) Get Employment Status Descriptors by codeValue",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/StaffClassificationDescriptors?codeValue=Permanent Academic-Test",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"StaffClassificationDescriptors"
+									],
+									"query": [
+										{
+											"key": "codeValue",
+											"value": "Permanent Academic-Test"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post Employment Status Descriptors",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"codeValue\": \"Permanent Academic-Test\",\n  \"description\": \"Permanent Academic-Test\",\n  \"namespace\": \"uri://ed-fi.org/EmploymentStatusDescriptor\",\n  \"shortDescription\": \"Permanent Academic-Test\"\n}"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/EmploymentStatusDescriptors",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"EmploymentStatusDescriptors"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3) Put  Employment Status Descriptors",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"codeValue\": \"Permanent Academic\",\n  \"description\": \"Permanent Academic\",\n  \"namespace\": \"uri://ed-fi.org/EmploymentStatusDescriptor\",\n  \"shortDescription\": \"Permanent Academic\"\n}"
+								},
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/EmploymentStatusDescriptors/939cb47615de4fa7b2c394b7c874ca44",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"EmploymentStatusDescriptors",
+										"939cb47615de4fa7b2c394b7c874ca44"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "4) Delete Employment Status Descriptors",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{ApiUrl}}ed-fi/StaffClassificationDescriptors/939cb47615de4fa7b2c394b7c874ca44",
+									"host": [
+										"{{ApiUrl}}ed-fi"
+									],
+									"path": [
+										"StaffClassificationDescriptors",
+										"939cb47615de4fa7b2c394b7c874ca44"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "1) GetOAuthToken",
 					"event": [
 						{
@@ -8262,12 +8898,12 @@
 		},
 		{
 			"key": "ClientId",
-			"value": "RvcohKz9zHI4",
+			"value": "yourclient",
 			"type": "string"
 		},
 		{
 			"key": "ClientSecret",
-			"value": "E1iEFusaNf81xzCxwHfbolkC",
+			"value": "yourSecret",
 			"type": "string"
 		},
 		{
