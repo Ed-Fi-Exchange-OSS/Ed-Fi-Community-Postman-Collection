@@ -8789,12 +8789,12 @@
 							"urlencoded": [
 								{
 									"key": "Client_id",
-									"value": "{{Key}}",
+									"value": "{{ClientId}}",
 									"type": "text"
 								},
 								{
 									"key": "Client_secret",
-									"value": "{{Secret}}",
+									"value": "{{ClientSecret}}",
 									"type": "text"
 								},
 								{
@@ -8805,9 +8805,9 @@
 							]
 						},
 						"url": {
-							"raw": "{{ApiRoot}}/oauth/token",
+							"raw": "{{oauthTokenUrl}}",
 							"host": [
-								"{{ApiRoot}}"
+								"{{ApiUrl}}"
 							],
 							"path": [
 								"oauth",
