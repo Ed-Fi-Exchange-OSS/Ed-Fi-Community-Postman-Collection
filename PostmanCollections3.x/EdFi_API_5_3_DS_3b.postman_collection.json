@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "552c5ca3-b0d4-4b93-88f3-f4bb7a0b7245",
+		"_postman_id": "6331f203-e76a-4f36-b6f4-7ff006bb18b4",
 		"name": "EdFi_API_5_3_DS_3b",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "16170462"
@@ -9259,12 +9259,12 @@
 		"oauth2": [
 			{
 				"key": "clientSecret",
-				"value": "{{ClientSecret}}",
+				"value": "{{clientSecret}}",
 				"type": "string"
 			},
 			{
 				"key": "clientId",
-				"value": "{{ClientId}}",
+				"value": "{{clientId}}",
 				"type": "string"
 			},
 			{
