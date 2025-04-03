@@ -1,0 +1,890 @@
+{
+	"info": {
+		"_postman_id": "2833a6c8-7b59-4ff4-b3cf-82cf9ffe7c09",
+		"name": "Ed-Fi AdminApi 2.x-jon",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "32954591"
+	},
+	"item": [
+		{
+			"name": "0) Clients",
+			"item": [
+				{
+					"name": "1) CreateClient",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let requestHeaders = pm.request.headers.all();\r",
+									"console.log(requestHeaders[1].value.split(\" \")[1])\r",
+									"postman.setEnvironmentVariable(\"token\", requestHeaders[1].value.split(\" \")[1]);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"accept-encoding": true,
+							"connection": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{Token}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "ClientId",
+									"value": "{{AdminApiClientId}}",
+									"type": "text"
+								},
+								{
+									"key": "ClientSecret",
+									"value": "{{AdminApiClientSecret}}",
+									"type": "text"
+								},
+								{
+									"key": "DisplayName",
+									"value": "{{AdminApiClientId}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{AdminApiBaseUrl}}/connect/register"
+					},
+					"response": []
+				},
+				{
+					"name": "getToken",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let requestHeaders = pm.request.headers.all();\r",
+									"console.log(requestHeaders[1].value.split(\" \")[1])\r",
+									"postman.setEnvironmentVariable(\"token\", requestHeaders[1].value.split(\" \")[1]);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"accept-encoding": true,
+							"connection": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{Token}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "ClientId",
+									"value": "{{AdminApiClientId}}",
+									"type": "text"
+								},
+								{
+									"key": "ClientSecret",
+									"value": "{{AdminApiClientSecret}}",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{AdminApiBaseUrl}}/connect/token"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "1) Vendors",
+			"item": [
+				{
+					"name": "1) GET Vendors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{AdminApiBaseUrl}}{{dataPath}}/vendors?offset=0&limit=25",
+							"host": [
+								"{{AdminApiBaseUrl}}{{dataPath}}"
+							],
+							"path": [
+								"vendors"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1) GET Vendors By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{AdminApiBaseUrl}}{{dataPath}}/vendors/93"
+					},
+					"response": []
+				},
+				{
+					"name": "1) GET Vendor Applications",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{AdminApiBaseUrl}}{{dataPath}}/vendors/1/applications"
+					},
+					"response": []
+				},
+				{
+					"name": "1) POST Vendors",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"company\": \"Test Vendor\",\r\n        \"namespacePrefixes\": \"https://ed-fi.org\",\r\n        \"contactName\": \"Vendor contact\",\r\n        \"contactEmailAddress\": \"test@ed-fi.org\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{AdminApiBaseUrl}}{{dataPath}}/vendors"
+					},
+					"response": []
+				},
+				{
+					"name": "1) PUT Vendors",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"company\": \"Test1234\",\r\n        \"namespacePrefixes\": \"ed-fi.org\",\r\n        \"contactName\": \"test@ed-fi.org\",\r\n        \"contactEmailAddress\": \"test@ed-fi.org\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{AdminApiBaseUrl}}{{dataPath}}/vendors/93"
+					},
+					"response": []
+				},
+				{
+					"name": "1) DEL Vendors",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{AdminApiBaseUrl}}{{dataPath}}/vendors/127"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "2) OdsInstances",
+			"item": [
+				{
+					"name": "1) GET OdsInstances",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{AdminApiBaseUrl}}{{dataPath}}/OdsInstances?offset=0&limit=25",
+							"host": [
+								"{{AdminApiBaseUrl}}{{dataPath}}"
+							],
+							"path": [
+								"OdsInstances"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1) GET OdsInstances By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{AdminApiBaseUrl}}{{dataPath}}/OdsInstances/93"
+					},
+					"response": []
+				},
+				{
+					"name": "1) POST OdsInstances",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"name\": \"EdFi_Ods\",\r\n        \"instanceType\": \"SingleTenant\",\r\n        \"connectionString\": \"Server=(local); Database=EdFi_Ods; Integrated Security=True; Application Name=EdFi.Ods.WebApi; encrypt=false\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{AdminApiBaseUrl}}{{dataPath}}/OdsInstances"
+					},
+					"response": []
+				},
+				{
+					"name": "1) PUT OdsInstances",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"name\": \"EdFiST7.2_Ods_2025\",\r\n        \"instanceType\": \"SingleTenant\",\r\n        \"connectionString\": \"server=(local);database=EdFiST7.2_Ods_2025;Integrated Security=true;TrustServerCertificate=true;Application Name=AdminApi\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{AdminApiBaseUrl}}{{dataPath}}/OdsInstances/6"
+					},
+					"response": []
+				},
+				{
+					"name": "1) DEL OdsInstances",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{AdminApiBaseUrl}}{{dataPath}}/OdsInstances/127"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "3) OdsInstanceContexts",
+			"item": [
+				{
+					"name": "1) GET OdsInstanceContexts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{AdminApiBaseUrl}}{{dataPath}}/OdsInstanceContexts?offset=0&limit=25",
+							"host": [
+								"{{AdminApiBaseUrl}}{{dataPath}}"
+							],
+							"path": [
+								"OdsInstanceContexts"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1) GET OdsInstanceContexts By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{AdminApiBaseUrl}}{{dataPath}}/OdsInstanceContexts/14"
+					},
+					"response": []
+				},
+				{
+					"name": "1) POST OdsInstanceContexts",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"odsInstanceId\": 6,\r\n    \"contextKey\": \"SchoolYear\",\r\n    \"contextValue\": \"25\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{AdminApiBaseUrl}}{{dataPath}}/OdsInstanceContexts"
+					},
+					"response": []
+				},
+				{
+					"name": "1) PUT OdsInstanceContexts",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"odsInstanceId\": 6,\r\n    \"contextKey\": \"SchoolYear\",\r\n    \"contextValue\": \"25\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{AdminApiBaseUrl}}{{dataPath}}/OdsInstanceContexts/14"
+					},
+					"response": []
+				},
+				{
+					"name": "1) DEL OdsInstanceContexts",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{AdminApiBaseUrl}}{{dataPath}}/OdsInstanceContexts/127"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "4) Profiles",
+			"item": [
+				{
+					"name": "1) GET profiles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{AdminApiBaseUrl}}{{dataPath}}/profiles?offset=0&limit=25",
+							"host": [
+								"{{AdminApiBaseUrl}}{{dataPath}}"
+							],
+							"path": [
+								"profiles"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1) GET profiles By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{AdminApiBaseUrl}}{{dataPath}}/profiles/2"
+					},
+					"response": []
+				},
+				{
+					"name": "1) POST profiles",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Test-Profile-StudentOnly-Resource-IncludeAll\",\r\n  \"definition\": \"<Profile name=\\\"Test-Profile-StudentOnly-Resource-IncludeAll\\\"> <Resource name=\\\"Student\\\">    <ReadContentType memberSelection=\\\"IncludeAll\\\" />    <WriteContentType memberSelection=\\\"IncludeAll\\\" />  </Resource></Profile>\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{AdminApiBaseUrl}}{{dataPath}}/profiles"
+					},
+					"response": []
+				},
+				{
+					"name": "1) PUT profiles",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Test-Profile-StudentOnly-Resource-IncludeAll\",\r\n  \"definition\": \"<Profile name=\\\"Test-Profile-StudentOnly-Resource-IncludeAll\\\"> <Resource name=\\\"Student\\\">    <ReadContentType memberSelection=\\\"IncludeAll\\\" />    <WriteContentType memberSelection=\\\"IncludeAll\\\" />  </Resource></Profile>\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{AdminApiBaseUrl}}{{dataPath}}/profiles/14"
+					},
+					"response": []
+				},
+				{
+					"name": "1) DEL profiles",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{AdminApiBaseUrl}}{{dataPath}}/profiles/127"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "5) Applications",
+			"item": [
+				{
+					"name": "1) GET applications",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{AdminApiBaseUrl}}{{dataPath}}/applications?offset=0&limit=25",
+							"host": [
+								"{{AdminApiBaseUrl}}{{dataPath}}"
+							],
+							"path": [
+								"applications"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1) GET applications By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{AdminApiBaseUrl}}{{dataPath}}/applications/2"
+					},
+					"response": []
+				},
+				{
+					"name": "1) POST applications",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"applicationName\": \"Test Application\",\r\n    \"claimSetName\": \"District Hosted SIS Vendor\",\r\n    \"educationOrganizationIds\": [\r\n      255900\r\n    ],\r\n    \"vendorId\": 1,\r\n    \"profileIds\": [\r\n    ],\r\n    \"odsInstanceIds\": [\r\n      1\r\n    ]\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{AdminApiBaseUrl}}{{dataPath}}/applications"
+					},
+					"response": []
+				},
+				{
+					"name": "1) PUT applications",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"applicationName\": \"Test Application\",\r\n    \"claimSetName\": \"District Hosted SIS Vendor\",\r\n    \"educationOrganizationIds\": [\r\n      255900\r\n    ],\r\n    \"vendorId\": 145,\r\n    \"profileIds\": [\r\n      1\r\n    ],\r\n    \"odsInstanceIds\": [\r\n      2\r\n    ]\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{AdminApiBaseUrl}}{{dataPath}}/applications/144"
+					},
+					"response": []
+				},
+				{
+					"name": "1) DEL applications",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{AdminApiBaseUrl}}{{dataPath}}/applications/127"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "6) authorizationStrategies",
+			"item": [
+				{
+					"name": "1) GET authorizationStrategies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{AdminApiBaseUrl}}{{dataPath}}/authorizationStrategies?offset=0&limit=25",
+							"host": [
+								"{{AdminApiBaseUrl}}{{dataPath}}"
+							],
+							"path": [
+								"authorizationStrategies"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "7) actions",
+			"item": [
+				{
+					"name": "1) GET actions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{AdminApiBaseUrl}}{{dataPath}}/actions"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "8) ClaimSets",
+			"item": [
+				{
+					"name": "1) GET ClaimSets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{AdminApiBaseUrl}}{{dataPath}}/ClaimSets?offset=0&limit=25",
+							"host": [
+								"{{AdminApiBaseUrl}}{{dataPath}}"
+							],
+							"path": [
+								"ClaimSets"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1) GET ClaimSets By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{AdminApiBaseUrl}}{{dataPath}}/claimSets/2"
+					},
+					"response": []
+				},
+				{
+					"name": "1) POST ClaimSets",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Test Claim set\",\r\n    \"_applications\": [\r\n      {\r\n        \"applicationName\": \"Application-Ed-Fi Sandbox\"\r\n      },\r\n      {\r\n        \"applicationName\": \"Application-Ed-Fi Sandbox 1\"\r\n      }\r\n    ]\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{AdminApiBaseUrl}}{{dataPath}}/claimSets"
+					},
+					"response": []
+				},
+				{
+					"name": "1) PUT ClaimSets",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Test Claim set\",\r\n    \"_applications\": [\r\n      {\r\n        \"applicationName\": \"Application-Ed-Fi Sandbox\"\r\n      },\r\n      {\r\n        \"applicationName\": \"Application-Ed-Fi Sandbox 1\"\r\n      }\r\n    ]\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{AdminApiBaseUrl}}{{dataPath}}/claimSets/19"
+					},
+					"response": []
+				},
+				{
+					"name": "1) DEL ClaimSets",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{AdminApiBaseUrl}}{{dataPath}}/claimSets/111111"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "9) OdsInstanceDerivatives",
+			"item": [
+				{
+					"name": "1) GET OdsInstanceDerivatives",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{AdminApiBaseUrl}}{{dataPath}}/OdsInstanceDerivatives?offset=0&limit=25",
+							"host": [
+								"{{AdminApiBaseUrl}}{{dataPath}}"
+							],
+							"path": [
+								"OdsInstanceDerivatives"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1) GET OdsInstanceDerivatives By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{AdminApiBaseUrl}}{{dataPath}}/OdsInstanceDerivatives/2"
+					},
+					"response": []
+				},
+				{
+					"name": "1) POST OdsInstanceDerivatives",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"odsInstanceId\": 2,\r\n  \"derivativeType\": \"Test\",\r\n  \"connectionString\": \"server=(local);database=EdFiST7.2_Ods_2025;Integrated Security=true;TrustServerCertificate=true;Application Name=AdminApi\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{AdminApiBaseUrl}}{{dataPath}}/OdsInstanceDerivatives"
+					},
+					"response": []
+				},
+				{
+					"name": "1) PUT OdsInstanceDerivatives",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"odsInstanceId\": 2,\r\n  \"derivativeType\": \"Test\",\r\n  \"connectionString\": \"server=(local);database=EdFiST7.2_Ods_2025;Integrated Security=true;TrustServerCertificate=true;Application Name=AdminApi\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{AdminApiBaseUrl}}{{dataPath}}/OdsInstanceDerivatives/19"
+					},
+					"response": []
+				},
+				{
+					"name": "1) DEL OdsInstanceDerivatives",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{AdminApiBaseUrl}}{{dataPath}}/OdsInstanceDerivatives/111111"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": {
+			"clientSecret": "{{AdminApiClientSecret}}",
+			"clientId": "{{AdminApiClientId}}",
+			"scope": "edfi_admin_api/full_access",
+			"accessTokenUrl": "{{oauthTokenUrl}}",
+			"tokenName": "ODS Token",
+			"tokenType": "",
+			"accessToken": "",
+			"grant_type": "client_credentials",
+			"useBrowser": false,
+			"addTokenTo": "header"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
