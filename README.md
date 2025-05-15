@@ -45,7 +45,6 @@ To browse the WebAPI, click on the Manage Application -  Browse Application lin
 Note the information located under these two urls: “dataManagementApi” and “oauth” values.  You will need these two values inside of Postman on the Authorization tab.
 
 
-
 Get a key and secret value that will work with your API. These will be displayed when a new sandbox is created in the sandbox admin app, or when a new API client is generated in the Admin App. See documentation here about generating new API clients. 
 In Postman, open the Ed-Fi collection and click on the Variables tab. Fill out the four values in both the initial value and current value columns, with ApiUrl as the dataManagementApi value, ClientId as the key, ClientSecret as the secret, and oauth as the oauthTokenUrl. Save your values.  
 
