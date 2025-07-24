@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "bdf40cb8-5605-43d7-9d6d-31c2dc38cfa7",
+		"_postman_id": "917373ae-2e11-4c4a-a321-12038ed858ac",
 		"name": "EdFi_API_6_2_DS_4",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "16170462"
@@ -151,7 +151,7 @@
 									"listen": "prerequest",
 									"script": {
 										"exec": [
-											"console.log('Logging information to the console')"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -7566,7 +7566,445 @@
 					]
 				},
 				{
-					"name": "44) Token info",
+					"name": "44) Schools",
+					"item": [
+						{
+							"name": "1) Get Schools",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseApiUrl}}{{dataPath}}ed-fi/schools",
+									"host": [
+										"{{baseApiUrl}}{{dataPath}}ed-fi"
+									],
+									"path": [
+										"schools"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1) Get Schools by schoolId",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseApiUrl}}{{dataPath}}ed-fi/schools?schoolId=1",
+									"host": [
+										"{{baseApiUrl}}{{dataPath}}ed-fi"
+									],
+									"path": [
+										"schools"
+									],
+									"query": [
+										{
+											"key": "schoolId",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post Schools",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"localEducationAgencyReference\": { \"localEducationAgencyId\": 987654321 },\n    \"schoolId\": 1,\n    \"nameOfInstitution\": \"School for Testing\",\n\n    \"educationOrganizationCategories\": [ { \"educationOrganizationCategoryDescriptor\": \"uri://ed-fi.org/EducationOrganizationCategoryDescriptor#School\" } ],\n    \"gradeLevels\": [\n        { \"gradeLevelDescriptor\": \"uri://ed-fi.org/GradeLevelDescriptor#Eighth grade\" },\n        { \"gradeLevelDescriptor\": \"uri://ed-fi.org/GradeLevelDescriptor#Eleventh grade\" },\n        { \"gradeLevelDescriptor\": \"uri://ed-fi.org/GradeLevelDescriptor#Ninth grade\" },\n        { \"gradeLevelDescriptor\": \"uri://ed-fi.org/GradeLevelDescriptor#Seventh grade\" },\n        { \"gradeLevelDescriptor\": \"uri://ed-fi.org/GradeLevelDescriptor#Sixth grade\" },\n        { \"gradeLevelDescriptor\": \"uri://ed-fi.org/GradeLevelDescriptor#Fifth grade\" },\n        { \"gradeLevelDescriptor\": \"uri://ed-fi.org/GradeLevelDescriptor#Tenth grade\" },\n        { \"gradeLevelDescriptor\": \"uri://ed-fi.org/GradeLevelDescriptor#Twelfth grade\" }\n    ]\n}"
+								},
+								"url": {
+									"raw": "{{baseApiUrl}}{{dataPath}}ed-fi/Schools",
+									"host": [
+										"{{baseApiUrl}}{{dataPath}}ed-fi"
+									],
+									"path": [
+										"Schools"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Put Schools",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"localEducationAgencyReference\": { \"localEducationAgencyId\": 987654321 },\n    \"schoolId\": 1,\n    \"nameOfInstitution\": \"School for Testing.\",\n\n    \"educationOrganizationCategories\": [ { \"educationOrganizationCategoryDescriptor\": \"uri://ed-fi.org/EducationOrganizationCategoryDescriptor#School\" } ],\n    \"gradeLevels\": [\n        { \"gradeLevelDescriptor\": \"uri://ed-fi.org/GradeLevelDescriptor#Eighth grade\" },\n        { \"gradeLevelDescriptor\": \"uri://ed-fi.org/GradeLevelDescriptor#Eleventh grade\" },\n        { \"gradeLevelDescriptor\": \"uri://ed-fi.org/GradeLevelDescriptor#Ninth grade\" },\n        { \"gradeLevelDescriptor\": \"uri://ed-fi.org/GradeLevelDescriptor#Seventh grade\" },\n        { \"gradeLevelDescriptor\": \"uri://ed-fi.org/GradeLevelDescriptor#Sixth grade\" },\n        { \"gradeLevelDescriptor\": \"uri://ed-fi.org/GradeLevelDescriptor#Fifth grade\" },\n        { \"gradeLevelDescriptor\": \"uri://ed-fi.org/GradeLevelDescriptor#Tenth grade\" },\n        { \"gradeLevelDescriptor\": \"uri://ed-fi.org/GradeLevelDescriptor#Twelfth grade\" }\n    ]\n}"
+								},
+								"url": {
+									"raw": "{{baseApiUrl}}{{dataPath}}ed-fi/Schools/b6e88537f9a14074b8810f2fa179ede3",
+									"host": [
+										"{{baseApiUrl}}{{dataPath}}ed-fi"
+									],
+									"path": [
+										"Schools",
+										"b6e88537f9a14074b8810f2fa179ede3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1) Delete Schools",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseApiUrl}}{{dataPath}}ed-fi/schools/b6e88537f9a14074b8810f2fa179ede3",
+									"host": [
+										"{{baseApiUrl}}{{dataPath}}ed-fi"
+									],
+									"path": [
+										"schools",
+										"b6e88537f9a14074b8810f2fa179ede3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "45) LocalEducationAgencies",
+					"item": [
+						{
+							"name": "2) Get Local Education Agencies",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseApiUrl}}{{dataPath}}ed-fi/localEducationAgencies",
+									"host": [
+										"{{baseApiUrl}}{{dataPath}}ed-fi"
+									],
+									"path": [
+										"localEducationAgencies"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Get Local Education Agencies by localEducationAgencyId",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseApiUrl}}{{dataPath}}ed-fi/localEducationAgencies?localEducationAgencyId=987654321",
+									"host": [
+										"{{baseApiUrl}}{{dataPath}}ed-fi"
+									],
+									"path": [
+										"localEducationAgencies"
+									],
+									"query": [
+										{
+											"key": "localEducationAgencyId",
+											"value": "987654321"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post Local Education Agencies",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"localEducationAgencyId\": 987654321,\n  \"categories\": [ \n      { \"educationOrganizationCategoryDescriptor\": \"uri://ed-fi.org/EducationOrganizationCategoryDescriptor#Local Education Agency\" } \n   ],\n  \"nameOfInstitution\": \"Testing Public School\",\n  \"shortNameOfInstitution\": \"Testing School\",\n  \"addresses\": [{\n        \"addressTypeDescriptor\": \"uri://ed-fi.org/AddressTypeDescriptor#Physical\",\n        \"stateAbbreviationDescriptor\": \"uri://ed-fi.org/StateAbbreviationDescriptor#NM\",\n        \"city\": \"Rio Rancho\",\n        \"postalCode\": \"87124\",\n        \"streetNumberName\": \"500\"\n    }],\n  \"charterStatusDescriptor\": \"uri://ed-fi.org/CharterStatusDescriptor#Not a Charter School\",\n  \"localEducationAgencyCategoryDescriptor\": \"uri://ed-fi.org/LocalEducationAgencyCategoryDescriptor#Independent\",\n  \"operationalStatusDescriptor\": \"uri://ed-fi.org/OperationalStatusDescriptor#Active\"\n}"
+								},
+								"url": {
+									"raw": "{{baseApiUrl}}{{dataPath}}ed-fi/localEducationAgencies",
+									"host": [
+										"{{baseApiUrl}}{{dataPath}}ed-fi"
+									],
+									"path": [
+										"localEducationAgencies"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3) Post Local Education Agencies",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"localEducationAgencyId\": 987654321,\n  \"categories\": [ \n      { \"educationOrganizationCategoryDescriptor\": \"uri://ed-fi.org/EducationOrganizationCategoryDescriptor#Local Education Agency\" } \n   ],\n  \"nameOfInstitution\": \"Testing Public School\",\n  \"shortNameOfInstitution\": \"Testing School\",\n  \"addresses\": [{\n        \"addressTypeDescriptor\": \"uri://ed-fi.org/AddressTypeDescriptor#Physical\",\n        \"stateAbbreviationDescriptor\": \"uri://ed-fi.org/StateAbbreviationDescriptor#NM\",\n        \"city\": \"Rio Rancho\",\n        \"postalCode\": \"87124\",\n        \"streetNumberName\": \"50\"\n    }],\n  \"charterStatusDescriptor\": \"uri://ed-fi.org/CharterStatusDescriptor#Not a Charter School\",\n  \"localEducationAgencyCategoryDescriptor\": \"uri://ed-fi.org/LocalEducationAgencyCategoryDescriptor#Independent\",\n  \"operationalStatusDescriptor\": \"uri://ed-fi.org/OperationalStatusDescriptor#Active\"\n}"
+								},
+								"url": {
+									"raw": "{{baseApiUrl}}{{dataPath}}ed-fi/localEducationAgencies/14916eba142949f398919fdaa98869bf",
+									"host": [
+										"{{baseApiUrl}}{{dataPath}}ed-fi"
+									],
+									"path": [
+										"localEducationAgencies",
+										"14916eba142949f398919fdaa98869bf"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "4) Delete Local Education Agencies",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseApiUrl}}{{dataPath}}ed-fi/localEducationAgencies/14916eba142949f398919fdaa98869bf",
+									"host": [
+										"{{baseApiUrl}}{{dataPath}}ed-fi"
+									],
+									"path": [
+										"localEducationAgencies",
+										"14916eba142949f398919fdaa98869bf"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "46) Descriptors",
+					"item": [
+						{
+							"name": "1) Get Employment Status Descriptors",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseApiUrl}}{{dataPath}}ed-fi/employmentStatusDescriptors",
+									"host": [
+										"{{baseApiUrl}}{{dataPath}}ed-fi"
+									],
+									"path": [
+										"employmentStatusDescriptors"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1) Get Employment Status Descriptors by codeValue",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseApiUrl}}{{dataPath}}ed-fi/StaffClassificationDescriptors?codeValue=Permanent Academic-Test",
+									"host": [
+										"{{baseApiUrl}}{{dataPath}}ed-fi"
+									],
+									"path": [
+										"StaffClassificationDescriptors"
+									],
+									"query": [
+										{
+											"key": "codeValue",
+											"value": "Permanent Academic-Test"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2) Post Employment Status Descriptors",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"codeValue\": \"Permanent Academic-Test\",\n  \"description\": \"Permanent Academic-Test\",\n  \"namespace\": \"uri://ed-fi.org/EmploymentStatusDescriptor\",\n  \"shortDescription\": \"Permanent Academic-Test\"\n}"
+								},
+								"url": {
+									"raw": "{{baseApiUrl}}{{dataPath}}ed-fi/EmploymentStatusDescriptors",
+									"host": [
+										"{{baseApiUrl}}{{dataPath}}ed-fi"
+									],
+									"path": [
+										"EmploymentStatusDescriptors"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3) Put  Employment Status Descriptors",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"codeValue\": \"Permanent Academic\",\n  \"description\": \"Permanent Academic\",\n  \"namespace\": \"uri://ed-fi.org/EmploymentStatusDescriptor\",\n  \"shortDescription\": \"Permanent Academic\"\n}"
+								},
+								"url": {
+									"raw": "{{baseApiUrl}}{{dataPath}}ed-fi/EmploymentStatusDescriptors/939cb47615de4fa7b2c394b7c874ca44",
+									"host": [
+										"{{baseApiUrl}}{{dataPath}}ed-fi"
+									],
+									"path": [
+										"EmploymentStatusDescriptors",
+										"939cb47615de4fa7b2c394b7c874ca44"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "4) Delete Employment Status Descriptors",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseApiUrl}}{{dataPath}}ed-fi/StaffClassificationDescriptors/939cb47615de4fa7b2c394b7c874ca44",
+									"host": [
+										"{{baseApiUrl}}{{dataPath}}ed-fi"
+									],
+									"path": [
+										"StaffClassificationDescriptors",
+										"939cb47615de4fa7b2c394b7c874ca44"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "47) Token info",
 					"item": [
 						{
 							"name": "1) Token info",
@@ -7575,9 +8013,23 @@
 									"listen": "test",
 									"script": {
 										"exec": [
+											"let storedToken  = pm.environment.get(\"token\");\r",
 											"let requestHeaders = pm.request.headers.all();\r",
-											"console.log(requestHeaders[1].value.split(\" \")[1])\r",
-											"postman.setEnvironmentVariable(\"token\", requestHeaders[1].value.split(\" \")[1]);"
+											"let currentToken  = requestHeaders[1].value.split(\" \")[1];\r",
+											"if (storedToken !== currentToken) {    \r",
+											"    postman.setEnvironmentVariable(\"token\", currentToken);\r",
+											"    console.log(storedToken)\r",
+											"    console.log(currentToken)\r",
+											"\r",
+											"     setTimeout(function(){\r",
+											"           let baseApiUrl  = pm.environment.get(\"baseApiUrl\");\r",
+											"        const response =  pm.sendRequest({\r",
+											"                            url: baseApiUrl + \"oauth/token_info\",\r",
+											"                            method: \"POST\"\r",
+											"                        });\r",
+											"                          console.log(response)\r",
+											"  }, 3000);  \r",
+											"}"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -7607,12 +8059,11 @@
 									}
 								},
 								"url": {
-									"raw": "{{baseApiUrl}}/oauth/token_info",
+									"raw": "{{baseApiUrl}}oauth/token_info",
 									"host": [
-										"{{baseApiUrl}}"
+										"{{baseApiUrl}}oauth"
 									],
 									"path": [
-										"oauth",
 										"token_info"
 									]
 								}
@@ -7683,6 +8134,28 @@
 					},
 					"response": []
 				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
 			]
 		}
 	],
@@ -7742,7 +8215,7 @@
 			"script": {
 				"type": "text/javascript",
 				"exec": [
-					"console.log('Logging information to the console')"
+					""
 				]
 			}
 		},
@@ -7751,7 +8224,7 @@
 			"script": {
 				"type": "text/javascript",
 				"exec": [
-					"console.log('Logging information to the console')"
+					""
 				]
 			}
 		}
